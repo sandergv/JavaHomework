@@ -116,7 +116,7 @@ public class MysqlConnection {
     }
 
     public static void update(String table, String column, String value, String condition){
-
+        conectar();
         String query = "update "+table+" set "+column+" = ? where first_name = ?";
         PreparedStatement pst;
         try {
@@ -128,10 +128,11 @@ public class MysqlConnection {
         catch(Exception e){
 
         }
+        desconectar();
     }
 
     public static void update(String table, String column, int value, String condition){
-
+        conectar();
         String query = "update "+table+" set "+column+" = ? where first_name = ?";
         PreparedStatement pst;
         try {
@@ -142,5 +143,6 @@ public class MysqlConnection {
         }
         catch(Exception e){
         }
+        desconectar();
     }
 }

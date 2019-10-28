@@ -10,7 +10,9 @@ public class Etapa {
     private String fechaTermino;
     private int codigoEstado;
 
-    private String estado;
+    private ArrayList<String> estados;
+    private ArrayList<TestCase> testCases;
+    private ArrayList<Comentario> comentarios;
 
     public Etapa() {
     }
@@ -55,11 +57,27 @@ public class Etapa {
         this.codigoEstado = codigoEstado;
     }
 
-    public String getEstado() {
-        return estado;
+    public ArrayList<String> getEstados() {
+        return estados;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setEstados(ArrayList<String> estados) {
+        this.estados = estados;
+    }
+
+    public ArrayList<TestCase> getTestCases() {
+        return testCases;
+    }
+
+    public void setTestCases(ArrayList<TestCase> testCases) {
+        this.testCases = testCases;
+    }
+
+    public ArrayList<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(ArrayList<Comentario> comentarios) {
+        this.comentarios = comentarios;
     }
 }
