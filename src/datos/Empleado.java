@@ -5,6 +5,8 @@
  */
 package datos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Alexander
@@ -25,6 +27,8 @@ public class Empleado {
     private Rol rol;
     private Comuna comuna;
     private Empleado empleado;
+
+    private ArrayList<Proyecto> proyectos;
 
     public Empleado() {
     }
@@ -146,6 +150,12 @@ public class Empleado {
     public void setDireccion(String Direccion) {
         this.direccion = Direccion;
     }
-    
-    
+
+    public ArrayList<Proyecto> getProyectos() {
+        return proyectos;
+    }
+
+    public void setProyectos(ArrayList<Proyecto> proyectos) {
+        this.proyectos = proyectos;
+    }
 }

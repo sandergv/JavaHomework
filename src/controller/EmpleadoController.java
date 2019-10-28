@@ -2,6 +2,7 @@ package controller;
 
 import database.MysqlConnection;
 import datos.Empleado;
+import datos.Proyecto;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,6 +37,7 @@ public class EmpleadoController {
                 emp.setEmpleado(getEmpleadoByCodigo(emp.getCodigo()));
                 emp.setComuna(ComunaController.getComunaByCodigo(emp.getCodigoComuna()));
                 emp.setRol(RolController.getRolByCodigo(emp.getCodigoRol()));
+                emp.setProyectos(getProyectos(emp.getCodigo()));
             }
             MysqlConnection.desconectar();
         }
@@ -68,6 +70,7 @@ public class EmpleadoController {
             }
             em.setComuna(ComunaController.getComunaByCodigo(em.getCodigoComuna()));
             em.setRol(RolController.getRolByCodigo(em.getCodigoRol()));
+            em.setProyectos(getProyectos(em.getCodigo()));
         }
         catch (Exception e){
 
@@ -105,5 +108,44 @@ public class EmpleadoController {
     }
     public  static void borrarEmpleado(int codigo){
         MysqlConnection.delete("empleado", "CODIGOEMPLEADO="+codigo);
+    }
+
+    public static void addProyecto(Proyecto p, int codigoEmpleado){
+        MysqlConnection.conectar();
+        String[] columns = {"CODIGOEMPLEADO", "CODIGOPROYECTO"};
+        PreparedStatement pst = MysqlConnection.insert("empleadoproyecto", columns);
+
+        try{
+            pst.setInt(1, codigoEmpleado);
+            pst.setInt(2, p.getCodigo());
+
+            pst.execute();
+            pst.close();
+        }
+        catch (Exception e){
+
+        }
+        MysqlConnection.desconectar();
+    }
+
+    public static ArrayList<Proyecto> getProyectos(int codigo){
+        ArrayList<Proyecto> c = new ArrayList<>();
+        ArrayList<Integer> rc = new ArrayList<>();
+        MysqlConnection.conectar();
+        ResultSet rs = MysqlConnection.select("empleadoproyecto", "*", "CODIGOEMPLEADO="+codigo);
+        try {
+            while (rs.next()) {
+                rc.add(rs.getInt("CODIGOPROYECTO"));
+            }
+            rs.close();
+            for(int r: rc){
+                c.add(ProyectoController.getProyectoByCodigo(r));
+            }
+        }
+        catch (Exception e){
+
+        }
+        MysqlConnection.desconectar();
+        return c;
     }
 }

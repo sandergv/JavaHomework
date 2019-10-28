@@ -67,8 +67,8 @@ public class TestCaseController {
         MysqlConnection.desconectar();
     }
 
-    public static void borrarTestCase(){
-
+    public static void borrarTestCase(int codigo){
+        MysqlConnection.delete("testcase", "CODIGOTESTCASE="+codigo);
     }
 
     private static void addDefecto(int codigoTestCase, int codigoDefecto){
@@ -107,7 +107,6 @@ public class TestCaseController {
             }
             catch(Exception e){
             }
-
         }
         MysqlConnection.desconectar();
         return dl;

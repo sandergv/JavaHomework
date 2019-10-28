@@ -20,8 +20,8 @@ public class Proyecto {
     private int horaEstimada;
     private String fechaInicio;
     private String fechaTerminoPlanificada;
-    private ArrayList<String> estados;
 
+    private ArrayList<String> estados;
     private ArrayList<Cliente> clientes; // clientes asociados al proyecto
     private ArrayList<Recurso> recursos; // recursos asociados al proyecto
     private ArrayList<Empleado> empleados; // empleados asociados al proyecto

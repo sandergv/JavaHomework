@@ -4,6 +4,7 @@ import database.MysqlConnection;
 import datos.Privilegio;
 import datos.Rol;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -37,14 +38,13 @@ public class RolController {
             while (rs.next()) {
                 p = new Privilegio();
                 p.setCodigo(rs.getInt("CODIGOPRIVILEGIO"));
-                p.setFechaAsignacion(rs.getString("FECHAASIGNACION"));
                 cp.add(p);
             }
             rs.close();
             for (Privilegio c : cp) {
                 rs = MysqlConnection.select("privilegio", "*", "CODIGOPRIVILEGIO=" + c);
                 if (rs.next()) {
-                    c.setNombre(rs.getString("NOMBREPRIVILEGIO"));
+                    c.setDescripcion(rs.getString("DESCRIPCIONPRIVILEGIO"));
                 }
             }
             rs.close();
@@ -54,6 +54,31 @@ public class RolController {
         }
         MysqlConnection.desconectar();
         return cp;
+    }
+
+    public static void addPrivilegio(Privilegio p, int codigoRol){
+        MysqlConnection.conectar();
+
+        String[] columns = {"DESCRIPCIONPRIVILEGIO"};
+        PreparedStatement pst = MysqlConnection.insert("privilegio", columns);
+        try{
+            pst.setString(1, p.getDescripcion());
+
+            pst.execute();
+            pst.close();
+
+            String[] c = {"CODIGOPRIVILEGIO", "CODIGOROL"};
+            pst = MysqlConnection.insert("rolprivilegio", c);
+
+            pst.setInt(1, p.getCodigo());
+            pst.setInt(2, codigoRol);
+
+            pst.execute();
+            pst.close();
+        }
+        catch(Exception e){
+        }
+        MysqlConnection.desconectar();
     }
 
     public static ArrayList<Rol> getRoles(){

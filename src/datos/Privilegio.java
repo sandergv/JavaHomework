@@ -3,7 +3,7 @@ package datos;
 public class Privilegio {
 
     private int codigo;
-    private String nombre;
+    private String descripcion;
     private String fechaAsignacion;
 
     public Privilegio() {
@@ -17,12 +17,12 @@ public class Privilegio {
         this.codigo = codigo;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getFechaAsignacion() {

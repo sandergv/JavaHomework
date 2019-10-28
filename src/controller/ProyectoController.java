@@ -68,7 +68,7 @@ public class ProyectoController {
                 p.setFechaTerminoPlanificada(rs.getString("FECHATERMINOPLANIFICADA"));
 
                 int codigo = p.getCodigo();
-                p.setTipoProyecto(getTipoProyecto(codigo));
+                p.setTipoProyecto(getTipoProyecto(p.getCodigoTipo()));
                 p.setClientes(getClientes(codigo));
                 p.setEmpleados(getEmpleados(codigo));
                 p.setEtapas(getEtapas(codigo));
