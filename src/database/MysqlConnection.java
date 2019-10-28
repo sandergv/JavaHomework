@@ -102,7 +102,6 @@ public class MysqlConnection {
 
     public static void delete(String table, String condition){
         conectar();
-        PreparedStatement pst = null;
         try {
 
             String query = "delete from "+table+" where "+ condition;
@@ -114,5 +113,34 @@ public class MysqlConnection {
 
         }
         desconectar();
+    }
+
+    public static void update(String table, String column, String value, String condition){
+
+        String query = "update "+table+" set "+column+" = ? where first_name = ?";
+        PreparedStatement pst;
+        try {
+            pst = conn.prepareStatement(query);
+            pst.setString(1, value);
+            pst.execute();
+            pst.close();
+        }
+        catch(Exception e){
+
+        }
+    }
+
+    public static void update(String table, String column, int value, String condition){
+
+        String query = "update "+table+" set "+column+" = ? where first_name = ?";
+        PreparedStatement pst;
+        try {
+            pst = conn.prepareStatement(query);
+            pst.setInt(1, value);
+            pst.execute();
+            pst.close();
+        }
+        catch(Exception e){
+        }
     }
 }

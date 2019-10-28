@@ -5,6 +5,8 @@
  */
 package datos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Alexander
@@ -18,6 +20,12 @@ public class Proyecto {
     private int horaEstimada;
     private String fechaInicio;
     private String fechaTerminoPlanificada;
+    private ArrayList<String> estados;
+
+    private ArrayList<Cliente> clientes; // clientes asociados al proyecto
+    private ArrayList<Recurso> recursos; // recursos asociados al proyecto
+    private ArrayList<Empleado> empleados; // empleados asociados al proyecto
+    private ArrayList<Etapa> etapas;
 
     public Proyecto() {
     }
@@ -77,5 +85,44 @@ public class Proyecto {
     public void setFechaTerminoPlanificada(String fechaTerminoPlanificada) {
         this.fechaTerminoPlanificada = fechaTerminoPlanificada;
     }
-    
+
+    public ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(ArrayList<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+
+    public ArrayList<Recurso> getRecursos() {
+        return recursos;
+    }
+
+    public void setRecursos(ArrayList<Recurso> recursos) {
+        this.recursos = recursos;
+    }
+
+    public ArrayList<Empleado> getEmpleados() {
+        return empleados;
+    }
+
+    public void setEmpleados(ArrayList<Empleado> empleados) {
+        this.empleados = empleados;
+    }
+
+    public ArrayList<Etapa> getEtapas() {
+        return etapas;
+    }
+
+    public void setEtapas(ArrayList<Etapa> etapas) {
+        this.etapas = etapas;
+    }
+
+    public ArrayList<String> getEstados() {
+        return estados;
+    }
+
+    public void setEstados(ArrayList<String> estados) {
+        this.estados = estados;
+    }
 }
