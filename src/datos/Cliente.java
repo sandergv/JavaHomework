@@ -114,5 +114,6 @@ public class Cliente {
     public void setProyectos(ArrayList<Proyecto> proyectos) {
         this.proyectos = proyectos;
     }
-    
+
+    public void nuevoTelefono(int tel){this.telefonos.add(tel);}
 }

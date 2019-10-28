@@ -5,10 +5,9 @@
  */
 package database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import com.mysql.jdbc.StringUtils;
+
+import java.sql.*;
 
 /**
  *
@@ -22,7 +21,7 @@ public class MysqlConnection {
     private static final String user = "root";
     private static final String password = "";
 
-    private static final String url = "jdbc:mysql://localhost:3306/appit";
+    private static final String url = "jdbc:mysql://192.168.0.10:3306/appit";
 
 
     public static Connection getConn() {
@@ -35,20 +34,26 @@ public class MysqlConnection {
             }
         } catch (Exception e) {
             System.out.println("No conexion :c");
+            e.printStackTrace();
         }
         return conn;
     }
     
     public static void desconectar(){
+
         try {
-            st.close();
             conn.close();
             
             System.out.println("Conexion cerrada");
         } catch (Exception e) {
             System.out.println("Conexion no cerrada");
-            e.printStackTrace();
         }
+        try{
+
+        }catch (Exception e){}
+        try{
+            st.close();
+        }catch (Exception e){}
     }
     
     public static ResultSet select(String table,String data , String condition){
@@ -69,5 +74,31 @@ public class MysqlConnection {
             e.printStackTrace();
         }
         return rs;
+    }
+
+    public static PreparedStatement insert(String table, String[] columns) {
+        StringBuilder strc = new StringBuilder();
+        String v = "";
+        PreparedStatement pst = null;
+        for (int i = 0; i < columns.length; i++) {
+            if (i != columns.length - 1) {
+                strc.append(columns[i].concat(", "));
+                v = v.concat("?, ");
+            } else {
+                strc.append(columns[i]);
+                v = v.concat("?");
+            }
+        }
+
+        String query = " insert into "+table+" (" + strc.toString() + ")"
+                + " values (" + v + ")";
+        Connection conn = getConn();
+        try {
+            pst = conn.prepareStatement(query);
+        }
+        catch(Exception e){
+
+        }
+        return pst;
     }
 }

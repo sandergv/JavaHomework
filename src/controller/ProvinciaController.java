@@ -7,6 +7,8 @@ package controller;
 
 import database.MysqlConnection;
 import datos.Provincia;
+
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 /**
@@ -30,5 +32,19 @@ public class ProvinciaController {
         }
         MysqlConnection.desconectar();
         return provincia;
+    }
+
+    public static void nuevaProvincia(String nombre){
+        String[] columnas = {"NOMBREPROVINCIA"};
+        PreparedStatement pst = MysqlConnection.insert("provincia", columnas);
+        try{
+            pst.setString(1, nombre);
+            pst.execute();
+            pst.close();
+            MysqlConnection.desconectar();
+        }
+        catch (Exception e){
+            System.out.println("ProvinciaController");
+        }
     }
 }

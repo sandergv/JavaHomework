@@ -18,18 +18,45 @@ public class Empleado {
     private String nombre;
     private String apellido;
     private float sueldo;
-    private String incorporación;
+    private String incorporacion;
     private String usuario;
-    private String contraseña;
-    private String Direccion;
+    private String contrasena;
+    private String direccion;
+    private Rol rol;
+    private Comuna comuna;
+    private Empleado empleado;
 
     public Empleado() {
     }
 
-    public Empleado(int codigo, String usuario, String contraseña) {
+    public Empleado(int codigo, String usuario, String contrasena) {
         this.codigo = codigo;
         this.usuario = usuario;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+
+    public Comuna getComuna() {
+        return comuna;
+    }
+
+    public void setComuna(Comuna comuna) {
+        this.comuna = comuna;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 
     public int getCodigo() {
@@ -88,12 +115,12 @@ public class Empleado {
         this.sueldo = sueldo;
     }
 
-    public String getIncorporación() {
-        return incorporación;
+    public String getIncorporacion() {
+        return incorporacion;
     }
 
-    public void setIncorporación(String incorporación) {
-        this.incorporación = incorporación;
+    public void setIncorporacion(String incorporacion) {
+        this.incorporacion = incorporacion;
     }
 
     public String getUsuario() {
@@ -104,20 +131,20 @@ public class Empleado {
         this.usuario = usuario;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public String getDireccion() {
-        return Direccion;
+        return direccion;
     }
 
     public void setDireccion(String Direccion) {
-        this.Direccion = Direccion;
+        this.direccion = Direccion;
     }
     
     

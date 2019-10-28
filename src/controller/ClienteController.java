@@ -8,7 +8,10 @@ package controller;
 import database.MysqlConnection;
 import datos.Cliente;
 import datos.Proyecto;
+
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -102,5 +105,65 @@ public class ClienteController {
             proyectos.add(ProyectoController.getProyectoByCodigo(i));
         }
         return proyectos;
+    }
+
+    public static void nuevoCliente(Cliente c){
+        String[] columns = { "RUTCLIENTE", "CODIGOCOMUNA", "NOMBRECLIENTE", "DIRECCIONCLIENTE", "RAZONSOCIAL", "GIROCLIENTE", "CORREO"};
+        PreparedStatement pst = MysqlConnection.insert("cliente", columns);
+        try{
+            pst.setString(1, c.getRut());
+            pst.setInt(2, c.getCodigoComuna());
+            pst.setString(3, c.getNombre());
+            pst.setString(4, c.getDireccion());
+            pst.setString(5, c.getRazonSocial());
+            pst.setString(6, c.getGirocliente());
+            pst.setString(7, c.getCorreo());
+
+            pst.execute();
+            pst.close();
+            MysqlConnection.desconectar();
+
+            addTelefonosCliente(c.getRut(), c.getTelefonos());
+        }
+        catch (Exception e){
+            System.out.println("hi");
+            e.printStackTrace();
+        }
+    }
+    public static void addTelefonosCliente(String rut, ArrayList<Integer> tel){
+        try{
+            String[] tc = {"TELEFONO"};
+            PreparedStatement pst = null;
+            for (int i = 0; i < tel.size(); i++) {
+
+                pst = MysqlConnection.insert("TELEFONO", tc);
+                pst.setInt(1, tel.get(i));
+                pst.execute();
+                pst.close();
+                MysqlConnection.desconectar();
+            }
+            ArrayList<Integer> cdT = new ArrayList<Integer>();
+            ResultSet rs;
+            for (int i = 0; i < tel.size(); i++) {
+                rs = MysqlConnection.select("telefono", "*", "TELEFONO="+ tel.get(i));
+                if(rs.next())
+                    cdT.add(rs.getInt("CODIGOTELEFONO"));
+                rs.close();
+                MysqlConnection.desconectar();
+            }
+
+            String[] columns = {"CODIGOTELEFONO", "RUTCLIENTE"};
+            for (int c:cdT) {
+                pst = MysqlConnection.insert("clientetelefono", columns);
+                pst.setInt(1, c);
+                pst.setString(2, rut);
+                pst.execute();
+                pst.close();
+                MysqlConnection.desconectar();
+            }
+
+        }
+        catch(Exception e){
+        }
     }
 }
