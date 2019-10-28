@@ -20,6 +20,7 @@ public class ComunaController {
     
     public static Comuna getComunaByCodigo(int codigo){
        Comuna comuna = new Comuna();
+       MysqlConnection.conectar();
         ResultSet rs = MysqlConnection.select("comuna", "*", "CODIGOCOMUNA=" + codigo);
         try{
             if(rs.next())
@@ -29,24 +30,26 @@ public class ComunaController {
         }
         catch(Exception e){
             System.out.println("ComunaControler: ");
+            e.printStackTrace();
         }
-        MysqlConnection.desconectar();
         comuna.setProvincia(ProvinciaController.getProvinciaByCodigo(comuna.getCodigoProvincia()));
+        MysqlConnection.desconectar();
         return comuna;
     }
 
-    public static void nuevaComuna(int codigoProvincia, String nombre){
+    public static void nuevaComuna(Comuna comuna){
         String[] columnas = {"CODIGOPROVINCIA", "NOMBRECOMUNA"};
+        MysqlConnection.conectar();
         PreparedStatement pst = MysqlConnection.insert("comuna", columnas);
         try{
-            pst.setInt(1, codigoProvincia);
-            pst.setString(2, nombre);
+            pst.setInt(1, comuna.getCodigoProvincia());
+            pst.setString(2, comuna.getNombre());
             pst.execute();
             pst.close();
-            MysqlConnection.desconectar();
         }
         catch (Exception e){
             System.out.println("ComunaController");
         }
+        MysqlConnection.desconectar();
     }
 }

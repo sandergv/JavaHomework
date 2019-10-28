@@ -17,14 +17,14 @@ import java.util.ArrayList;
 public class ProyectoController {
     
     public static Proyecto getProyectoByCodigo(int codigo){
-        Proyecto p = null;
+        MysqlConnection.conectar();
+        Proyecto p = new Proyecto();
         
         ResultSet rs = MysqlConnection.select("proyecto", "*", "CODIGOPROYECTO=" + codigo);
         
         try {
             if(rs.next()){
-                p = new Proyecto();
-                
+
                 p.setCodigo(rs.getInt("CODIGOPROYECTO"));
                 p.setCodigoTipo(rs.getInt("CODIGOTIPOPROYECTO"));
                 p.setNombre(rs.getString("NOMBREPROYECTO"));
@@ -34,18 +34,20 @@ public class ProyectoController {
                 
             }   
             
-            MysqlConnection.desconectar();
-            
+
             p.setTipoProyecto(getTipoProyecto(p.getCodigoTipo()));
             
         } catch (Exception e) {
-        }   
-        return p;        
+        }
+        MysqlConnection.desconectar();
+
+        return p;
     }
     
     public static ArrayList<Proyecto> getProyectos(){
         ArrayList<Proyecto> proyectos = new ArrayList<Proyecto>();
-        Proyecto p = null;
+        Proyecto p;
+        MysqlConnection.conectar();
         ResultSet rs = MysqlConnection.select("proyecto", "*", "");
         
         try {
@@ -62,14 +64,15 @@ public class ProyectoController {
                 proyectos.add(p);
             }   
             
-            MysqlConnection.desconectar();
-            
+
         } catch (Exception e) {
         }
+        MysqlConnection.desconectar();
         return proyectos;
     }
     
     public static String getTipoProyecto(int codigo){
+        MysqlConnection.conectar();
         ResultSet rs = MysqlConnection.select("tipo_proyecto", "*", "CODIGOTIPOPROYECTO=" + codigo);
         String tp = "";
         try {
@@ -78,6 +81,7 @@ public class ProyectoController {
             
         } catch (Exception e) {
         }
+        MysqlConnection.desconectar();
         return tp;
     }
     

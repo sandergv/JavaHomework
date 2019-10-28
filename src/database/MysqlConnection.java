@@ -5,8 +5,6 @@
  */
 package database;
 
-import com.mysql.jdbc.StringUtils;
-
 import java.sql.*;
 
 /**
@@ -16,52 +14,53 @@ import java.sql.*;
 public class MysqlConnection {
     
     private static Connection conn;
-    private static Statement st;
     private static final String driver = "com.mysql.jdbc.Driver";
     private static final String user = "root";
     private static final String password = "";
 
     private static final String url = "jdbc:mysql://192.168.0.10:3306/appit";
 
+    private static int callCount = 0; // conteo de llamadas a conectar, la conexión no es cerrada hasta que la primera llamada se desconecte
 
-    public static Connection getConn() {
-        conn = null;
+    public static void conectar(){
+
         try {
-            Class.forName(driver);
-            conn = DriverManager.getConnection(url, user, password);
-            if (conn != null) {
-                System.out.println("Conexion Ready.");
+            if (conn == null) {
+                Class.forName(driver);
+                conn = DriverManager.getConnection(url, user, password);
+                System.out.println("Conexion ready");
             }
         } catch (Exception e) {
             System.out.println("No conexion :c");
             e.printStackTrace();
         }
-        return conn;
+        callCount++;
     }
     
     public static void desconectar(){
-
         try {
-            conn.close();
-            
-            System.out.println("Conexion cerrada");
+            if (isConn() && callCount == 1) {
+                conn.close();
+                conn = null;
+                System.out.println("Conexion cerrada");
+            }
         } catch (Exception e) {
             System.out.println("Conexion no cerrada");
         }
         try{
 
         }catch (Exception e){}
-        try{
-            st.close();
-        }catch (Exception e){}
+        callCount--;
     }
-    
-    public static ResultSet select(String table,String data , String condition){
-        Connection conn = getConn();
-        ResultSet rs = null;
 
+    public static boolean isConn(){
+        return conn != null;
+    }
+
+    public static ResultSet select(String table,String data , String condition){
+        ResultSet rs = null;
         try{
-            st = conn.createStatement();
+            Statement st = conn.createStatement();
             if(condition.isEmpty())
                 rs = st.executeQuery(
                         String.format("SELECT %s FROM %s", data, table ));
@@ -92,7 +91,6 @@ public class MysqlConnection {
 
         String query = " insert into "+table+" (" + strc.toString() + ")"
                 + " values (" + v + ")";
-        Connection conn = getConn();
         try {
             pst = conn.prepareStatement(query);
         }
@@ -100,5 +98,21 @@ public class MysqlConnection {
 
         }
         return pst;
+    }
+
+    public static void delete(String table, String condition){
+        conectar();
+        PreparedStatement pst = null;
+        try {
+
+            String query = "delete from "+table+" where "+ condition;
+            Statement st = conn.createStatement();
+            st.execute(query);
+            st.close();
+        }
+        catch(Exception e){
+
+        }
+        desconectar();
     }
 }

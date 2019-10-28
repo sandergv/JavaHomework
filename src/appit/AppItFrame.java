@@ -61,24 +61,6 @@ public class AppItFrame extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        Cliente cliente = new Cliente();
-        cliente.setCodigoComuna(1);
-        cliente.setRut("23456123-4");
-        cliente.setNombre("TechLab");
-        cliente.setRazonSocial("Alfredo FTD");
-        cliente.setDireccion("Arturo Prat 3");
-        cliente.setGirocliente("Laboratorio");
-        cliente.setCorreo("lab@lab.com");
-        cliente.nuevoTelefono(123456788);
-        cliente.nuevoTelefono(987654321);
-        cliente.nuevoTelefono(986754231);
-        ClienteController.nuevoCliente(cliente);
-
-        ArrayList<Cliente> c = ClienteController.getClientes();
-
-        c.forEach(cl -> {
-            System.out.println(cl.getTelefonos().size());
-        });
 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

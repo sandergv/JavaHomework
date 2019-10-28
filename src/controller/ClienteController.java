@@ -19,11 +19,41 @@ import java.util.ArrayList;
  * @author Alexander
  */
 public class ClienteController {
-    
-    
+
+    public static Cliente getClienteByRut(String rut){
+        MysqlConnection.conectar();
+        Cliente c = null;
+        try{
+
+            ResultSet rs;
+            rs = MysqlConnection.select("cliente", "*", String.format("RUTCLIENTE='%s'", rut)); // st.executeQuery("SELECT * FROM cliente");
+            c = new Cliente();
+            if(rs.next()){
+
+                c.setRut(rs.getString("RUTCLIENTE"));
+                c.setCodigoComuna(rs.getInt("CODIGOCOMUNA"));
+                c.setNombre(rs.getString("NOMBRECLIENTE"));
+                c.setDireccion(rs.getString("DIRECCIONCLIENTE"));
+                c.setRazonSocial(rs.getString("RAZONSOCIAL"));
+                c.setGirocliente(rs.getString("GIROCLIENTE"));
+                c.setCorreo(rs.getString("CORREO"));
+            }
+            rs.close();
+
+            c.setComuna(ComunaController.getComunaByCodigo(c.getCodigoComuna()));
+            c.setTelefonos(getTelefonosCliente(c.getRut()));
+            c.setProyectos(getProyectosCliente(c.getRut()));
+        }
+        catch(Exception e){
+            System.out.println("ClienteController");
+        }
+        MysqlConnection.desconectar();
+        return c;
+
+    }
     
     public static ArrayList<Cliente> getClientes(){
-        
+        MysqlConnection.conectar();
         ArrayList<Cliente> arrClientes = new ArrayList<Cliente>();
         
         try{
@@ -44,7 +74,6 @@ public class ClienteController {
                 arrClientes.add(c);
             }
             rs.close();
-            MysqlConnection.desconectar();
             for(Cliente c : arrClientes){
                 c.setComuna(ComunaController.getComunaByCodigo(c.getCodigoComuna()));
                 c.setTelefonos(getTelefonosCliente(c.getRut()));
@@ -54,10 +83,12 @@ public class ClienteController {
         catch(Exception e){
             System.out.println("ClienteController");
         }
+        MysqlConnection.desconectar();
         return arrClientes;
     }
     
     public static ArrayList<Integer> getTelefonosCliente(String rut){
+        MysqlConnection.conectar();
         ArrayList<Integer> telefonos = new ArrayList<Integer>();
         ResultSet rs = MysqlConnection.select("clientetelefono", "*", String.format("RUTCLIENTE='%s'", rut));
         ArrayList<Integer> c = new ArrayList<Integer>();
@@ -67,7 +98,6 @@ public class ClienteController {
                 c.add(rs.getInt("CODIGOTELEFONO"));
             }
             rs.close();
-            MysqlConnection.desconectar();
         }
         catch (Exception e) {
         }
@@ -79,15 +109,15 @@ public class ClienteController {
                     telefonos.add(rs.getInt("TELEFONO"));
                 
                 rs.close();
-                MysqlConnection.desconectar();
             } catch (Exception e) {
             }
         }
-
+        MysqlConnection.desconectar();
         return telefonos;
     }
     
-    public static ArrayList<Proyecto> getProyectosCliente(String rut){
+    private static ArrayList<Proyecto> getProyectosCliente(String rut){
+        MysqlConnection.conectar();
         ArrayList<Proyecto> proyectos = new ArrayList<Proyecto>();
         ResultSet rs = MysqlConnection.select("proyectocliente", "*", String.format("RUTCLIENTE='%s'", rut));
         ArrayList<Integer> c = new ArrayList<Integer>();
@@ -97,17 +127,18 @@ public class ClienteController {
                 c.add(rs.getInt("CODIGOPROYECTO"));
             }
             rs.close();
-            MysqlConnection.desconectar();
         }
         catch (Exception e) {
         }
         for(int i : c){
             proyectos.add(ProyectoController.getProyectoByCodigo(i));
         }
+        MysqlConnection.desconectar();
         return proyectos;
     }
 
     public static void nuevoCliente(Cliente c){
+        MysqlConnection.conectar();
         String[] columns = { "RUTCLIENTE", "CODIGOCOMUNA", "NOMBRECLIENTE", "DIRECCIONCLIENTE", "RAZONSOCIAL", "GIROCLIENTE", "CORREO"};
         PreparedStatement pst = MysqlConnection.insert("cliente", columns);
         try{
@@ -121,7 +152,6 @@ public class ClienteController {
 
             pst.execute();
             pst.close();
-            MysqlConnection.desconectar();
 
             addTelefonosCliente(c.getRut(), c.getTelefonos());
         }
@@ -129,8 +159,10 @@ public class ClienteController {
             System.out.println("hi");
             e.printStackTrace();
         }
+        MysqlConnection.desconectar();
     }
-    public static void addTelefonosCliente(String rut, ArrayList<Integer> tel){
+    private static void addTelefonosCliente(String rut, ArrayList<Integer> tel){
+        MysqlConnection.conectar();
         try{
             String[] tc = {"TELEFONO"};
             PreparedStatement pst = null;
@@ -140,7 +172,6 @@ public class ClienteController {
                 pst.setInt(1, tel.get(i));
                 pst.execute();
                 pst.close();
-                MysqlConnection.desconectar();
             }
             ArrayList<Integer> cdT = new ArrayList<Integer>();
             ResultSet rs;
@@ -149,7 +180,6 @@ public class ClienteController {
                 if(rs.next())
                     cdT.add(rs.getInt("CODIGOTELEFONO"));
                 rs.close();
-                MysqlConnection.desconectar();
             }
 
             String[] columns = {"CODIGOTELEFONO", "RUTCLIENTE"};
@@ -159,11 +189,15 @@ public class ClienteController {
                 pst.setString(2, rut);
                 pst.execute();
                 pst.close();
-                MysqlConnection.desconectar();
             }
 
         }
         catch(Exception e){
         }
+        MysqlConnection.desconectar();
+    }
+
+    public static void borrarClienteByRut(String rut){
+        MysqlConnection.delete("cliente", "RUTCLIENTE="+rut);
     }
 }

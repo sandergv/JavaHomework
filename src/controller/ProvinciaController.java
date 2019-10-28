@@ -10,6 +10,7 @@ import datos.Provincia;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,6 +20,7 @@ public class ProvinciaController {
     
     public static Provincia getProvinciaByCodigo(int codigo){
         Provincia provincia = new Provincia();
+        MysqlConnection.conectar();
         ResultSet rs = MysqlConnection.select("provincia", "*", "CODIGOPROVINCIA=" + codigo);
         try{
             if(rs.next()){
@@ -34,17 +36,44 @@ public class ProvinciaController {
         return provincia;
     }
 
+    public static ArrayList<Provincia> getProvincias(){
+        Provincia provincia;
+        ArrayList<Provincia> provincias = new ArrayList<Provincia>();
+        MysqlConnection.conectar();
+        ResultSet rs = MysqlConnection.select("provincia", "*", "CODIGOPROVINCIA=");
+        try{
+            while (rs.next()){
+                provincia =  new Provincia();
+                provincia.setCodigo(rs.getInt("CODIGOPROVINCIA"));
+                provincia.setNombre(rs.getString("NOMBREPROVINCIA"));
+                provincias.add(provincia);
+            }
+        }
+        catch(Exception e){
+            System.out.println("ProvinciaControler: ");
+            e.printStackTrace();
+        }
+        MysqlConnection.desconectar();
+        return provincias;
+    }
+
     public static void nuevaProvincia(String nombre){
         String[] columnas = {"NOMBREPROVINCIA"};
+        MysqlConnection.conectar();
         PreparedStatement pst = MysqlConnection.insert("provincia", columnas);
         try{
             pst.setString(1, nombre);
             pst.execute();
             pst.close();
-            MysqlConnection.desconectar();
         }
         catch (Exception e){
             System.out.println("ProvinciaController");
         }
+        MysqlConnection.desconectar();
+
+    }
+
+    public static void borrarProvincia(int codigo){
+        MysqlConnection.delete("provincia", "CODIGOPROVINCIA="+codigo);
     }
 }
