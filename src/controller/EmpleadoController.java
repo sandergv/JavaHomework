@@ -34,10 +34,8 @@ public class EmpleadoController {
             }
 
             for(Empleado emp: empleados){
-                emp.setEmpleado(getEmpleadoByCodigo(emp.getCodigo()));
                 emp.setComuna(ComunaController.getComunaByCodigo(emp.getCodigoComuna()));
                 emp.setRol(RolController.getRolByCodigo(emp.getCodigoRol()));
-                emp.setProyectos(getProyectos(emp.getCodigo()));
             }
             MysqlConnection.desconectar();
         }
@@ -70,7 +68,6 @@ public class EmpleadoController {
             }
             em.setComuna(ComunaController.getComunaByCodigo(em.getCodigoComuna()));
             em.setRol(RolController.getRolByCodigo(em.getCodigoRol()));
-            em.setProyectos(getProyectos(em.getCodigo()));
         }
         catch (Exception e){
 

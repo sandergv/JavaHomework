@@ -69,8 +69,6 @@ public class ProyectoController {
 
                 int codigo = p.getCodigo();
                 p.setTipoProyecto(getTipoProyecto(p.getCodigoTipo()));
-                p.setClientes(getClientes(codigo));
-                p.setEmpleados(getEmpleados(codigo));
                 p.setEtapas(getEtapas(codigo));
                 p.setEstados(getEstados(codigo));
 
@@ -185,7 +183,7 @@ public class ProyectoController {
         }
         MysqlConnection.desconectar();
     }
-    private static ArrayList<Cliente> getClientes(int codigo){
+    public static ArrayList<Cliente> getClientes(int codigo){
         ArrayList<Cliente> c = new ArrayList<>();
         ArrayList<String> rc = new ArrayList<>();
         MysqlConnection.conectar();
@@ -207,7 +205,7 @@ public class ProyectoController {
         return c;
     }
 
-    private static  ArrayList<Empleado> getEmpleados(int codigo){
+    public static  ArrayList<Empleado> getEmpleados(int codigo){
         ArrayList<Empleado> c = new ArrayList<>();
         ArrayList<Integer> rc = new ArrayList<>();
         MysqlConnection.conectar();

@@ -42,7 +42,6 @@ public class ClienteController {
 
             c.setComuna(ComunaController.getComunaByCodigo(c.getCodigoComuna()));
             c.setTelefonos(getTelefonosCliente(c.getRut()));
-            c.setProyectos(getProyectosCliente(c.getRut()));
         }
         catch(Exception e){
             System.out.println("ClienteController");
@@ -77,7 +76,6 @@ public class ClienteController {
             for(Cliente c : arrClientes){
                 c.setComuna(ComunaController.getComunaByCodigo(c.getCodigoComuna()));
                 c.setTelefonos(getTelefonosCliente(c.getRut()));
-                c.setProyectos(getProyectosCliente(c.getRut()));
             }
         }
         catch(Exception e){
