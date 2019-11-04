@@ -51,6 +51,24 @@ public class ClienteController {
 
     }
     
+    public static Cliente getClienteByNombre(String nombre){
+        MysqlConnection.conectar();
+        
+        ResultSet rs = MysqlConnection.select("cliente", "RUTCLIENTE", String.format("NOMBRECLIENTE='%s'", nombre));
+        String rut = "";
+        try {
+            if (rs.next()) {
+                rut = rs.getString("RUTCLIENTE");
+            }
+            
+        } catch (Exception e) {
+        }
+        Cliente c = getClienteByRut(rut);
+        MysqlConnection.desconectar();
+        
+        return c;
+    }
+    
     public static ArrayList<Cliente> getClientes(){
         MysqlConnection.conectar();
         ArrayList<Cliente> arrClientes = new ArrayList<Cliente>();

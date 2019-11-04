@@ -35,8 +35,9 @@ public class ProyectoController {
                 p.setFechaInicio(rs.getString("FECHAINICIO"));                 
                 p.setFechaTerminoPlanificada(rs.getString("FECHATERMINOPLANIFICADA"));
                 
-            }   
-            p.setTipoProyecto(getTipoProyecto(codigo));
+            }
+
+            p.setTipoProyecto(getTipoProyecto(p.getCodigoTipo()));
             p.setClientes(getClientes(codigo));
             p.setEmpleados(getEmpleados(codigo));
             p.setEtapas(getEtapas(codigo));
@@ -44,11 +45,34 @@ public class ProyectoController {
             p.setRecursos(getRecursos(codigo));
 
         } catch (Exception e) {
+            System.out.println("err");
         }
         MysqlConnection.desconectar();
 
         return p;
     }
+    
+    public static Proyecto getProyectoByNombre(String nombre){
+        int codigo = -1;
+        Proyecto p = null;
+        MysqlConnection.conectar();
+        ResultSet rs = MysqlConnection.select("proyecto", "CODIGOPROYECTO", String.format("NOMBREPROYECTO='%s'", nombre));
+        try{
+            if (rs.next()) {
+                codigo = rs.getInt("CODIGOPROYECTO");
+            }
+        }
+        catch(Exception e){
+            System.out.println("ERROR");
+        }
+        if(codigo != -1)
+            p = getProyectoByCodigo(codigo);            
+        else
+            System.out.println("no codigo");
+            
+        MysqlConnection.desconectar();
+        return p;
+    } 
     
     public static ArrayList<Proyecto> getProyectos(){
         ArrayList<Proyecto> proyectos = new ArrayList<Proyecto>();
@@ -88,9 +112,9 @@ public class ProyectoController {
         String tp = "";
         try {
             if(rs.next())
-                tp = rs.getString("TIPOPROYECTO");
-            
+                tp = rs.getString("TIPOPROYECTO");    
         } catch (Exception e) {
+            System.out.println("Err");
         }
         MysqlConnection.desconectar();
         return tp;

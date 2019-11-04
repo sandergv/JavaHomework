@@ -6,10 +6,18 @@
 package appit;
 
 import controller.*;
+import database.MysqlConnection;
 
 import datos.*;
-import datos.Proyecto;
 import java.util.ArrayList;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -34,6 +42,49 @@ public class AppItFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        fProyecto = new javax.swing.JFrame();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        nProyecto = new javax.swing.JLabel();
+        tProyecto = new javax.swing.JLabel();
+        hEstimadas = new javax.swing.JLabel();
+        fInicio = new javax.swing.JLabel();
+        pTermino = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablaProyecto = new javax.swing.JTable();
+        jLabel10 = new javax.swing.JLabel();
+        cProyecto = new javax.swing.JLabel();
+        fCliente = new javax.swing.JFrame();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        proyectosCliente = new javax.swing.JTable();
+        nCliente = new javax.swing.JLabel();
+        rutCliente = new javax.swing.JLabel();
+        razonCliente = new javax.swing.JLabel();
+        dirCliente = new javax.swing.JLabel();
+        cCliente = new javax.swing.JLabel();
+        gCliente = new javax.swing.JLabel();
+        fEmpleado = new javax.swing.JFrame();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        nEmpleado = new javax.swing.JLabel();
+        aEmpleado = new javax.swing.JLabel();
+        uEmpleado = new javax.swing.JLabel();
+        rEmpleado = new javax.swing.JLabel();
+        iEmpleado = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -47,6 +98,263 @@ public class AppItFrame extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+
+        jLabel4.setText("Nombre Proyecto:");
+
+        jLabel5.setText("Tipo Proyecto:");
+
+        jLabel6.setText("Horas Estimadas:");
+
+        jLabel7.setText("Fecha Inicio:");
+
+        jLabel8.setText("Planificación Termino:");
+
+        nProyecto.setText("123");
+
+        tProyecto.setText("123");
+
+        hEstimadas.setText("123");
+
+        fInicio.setText("123");
+
+        pTermino.setText("123");
+
+        jLabel9.setText("Empleados asociados");
+
+        tablaProyecto.setAutoCreateColumnsFromModel(false);
+        jScrollPane4.setViewportView(tablaProyecto);
+
+        jLabel10.setText("Cliente Proyecto:");
+
+        cProyecto.setText("123");
+
+        javax.swing.GroupLayout fProyectoLayout = new javax.swing.GroupLayout(fProyecto.getContentPane());
+        fProyecto.getContentPane().setLayout(fProyectoLayout);
+        fProyectoLayout.setHorizontalGroup(
+            fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fProyectoLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addGroup(fProyectoLayout.createSequentialGroup()
+                        .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7))
+                        .addGap(29, 29, 29)
+                        .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fInicio)
+                            .addComponent(pTermino)
+                            .addComponent(hEstimadas)
+                            .addComponent(tProyecto)
+                            .addComponent(nProyecto)
+                            .addComponent(cProyecto))))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+        fProyectoLayout.setVerticalGroup(
+            fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fProyectoLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(nProyecto))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(tProyecto))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(cProyecto))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(hEstimadas))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(fInicio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(pTermino))
+                .addGap(43, 43, 43)
+                .addComponent(jLabel9)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
+        );
+
+        jLabel11.setText("Nombre Cliente:");
+
+        jLabel12.setText("Razon Social:");
+
+        jLabel13.setText("Rut Cliente:");
+
+        jLabel14.setText("Dirección:");
+
+        jLabel15.setText("Correo:");
+
+        jLabel16.setText("Giro:");
+
+        jLabel17.setText("Proyectos asociados:");
+
+        proyectosCliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(proyectosCliente);
+
+        nCliente.setText("jLabel18");
+
+        rutCliente.setText("jLabel19");
+
+        razonCliente.setText("jLabel20");
+
+        dirCliente.setText("jLabel21");
+
+        cCliente.setText("jLabel22");
+
+        gCliente.setText("jLabel23");
+
+        javax.swing.GroupLayout fClienteLayout = new javax.swing.GroupLayout(fCliente.getContentPane());
+        fCliente.getContentPane().setLayout(fClienteLayout);
+        fClienteLayout.setHorizontalGroup(
+            fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fClienteLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addGroup(fClienteLayout.createSequentialGroup()
+                        .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16))
+                        .addGap(18, 18, 18)
+                        .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(gCliente)
+                            .addComponent(cCliente)
+                            .addComponent(dirCliente)
+                            .addComponent(razonCliente)
+                            .addComponent(rutCliente)
+                            .addComponent(nCliente))))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+        fClienteLayout.setVerticalGroup(
+            fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fClienteLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(nCliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(rutCliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(razonCliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(dirCliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(cCliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(gCliente))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel18.setText("Nombre Empleado:");
+
+        jLabel19.setText("Apellido Empleado:");
+
+        jLabel20.setText("Rol Emplado:");
+
+        jLabel21.setText("Fecha Incorporación:");
+
+        jLabel22.setText("Nombre de usuario:");
+
+        nEmpleado.setText("jLabel23");
+
+        aEmpleado.setText("jLabel23");
+
+        uEmpleado.setText("jLabel23");
+
+        rEmpleado.setText("jLabel23");
+
+        iEmpleado.setText("jLabel23");
+
+        javax.swing.GroupLayout fEmpleadoLayout = new javax.swing.GroupLayout(fEmpleado.getContentPane());
+        fEmpleado.getContentPane().setLayout(fEmpleadoLayout);
+        fEmpleadoLayout.setHorizontalGroup(
+            fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fEmpleadoLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel21))
+                .addGap(32, 32, 32)
+                .addGroup(fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(iEmpleado)
+                    .addComponent(rEmpleado)
+                    .addComponent(uEmpleado)
+                    .addComponent(aEmpleado)
+                    .addComponent(nEmpleado))
+                .addContainerGap(229, Short.MAX_VALUE))
+        );
+        fEmpleadoLayout.setVerticalGroup(
+            fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fEmpleadoLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(nEmpleado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(aEmpleado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(uEmpleado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(rEmpleado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(iEmpleado))
+                .addContainerGap(250, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,10 +442,15 @@ public class AppItFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     public void myInitComponents() {
+        proyectoLista.setName("proyecto");
+        clienteLista.setName("cliente");
+        empleadoLista.setName("empleado");
         proyectoLista.removeAll();
+        MysqlConnection.conectar();
         ArrayList<Proyecto> listaP = ProyectoController.getProyectos();
         String[] listaProyectos = new String [listaP.size()];
         for (int i = 0; i < listaP.size(); i++) {
+
             listaProyectos[i] = listaP.get(i).getNombre();
         }
         proyectoLista.setListData(listaProyectos);
@@ -153,10 +466,117 @@ public class AppItFrame extends javax.swing.JFrame {
         empleadoLista.removeAll();
         ArrayList<Empleado> listaE = EmpleadoController.getEmpleados();
         String[] listaEmpleado = new String [listaE.size()];
+        String[][] le = new String [listaE.size()][2];
+
         for (int i = 0; i < listaE.size(); i++) {
-            listaEmpleado[i] = listaE.get(i).getNombre() + " " + listaE.get(i).getApellido();
+            String cname = listaE.get(i).getNombre() + " " + listaE.get(i).getApellido();
+            listaEmpleado[i] = cname;
+            le[i][0] = cname;
+            le[i][1] = Integer.toString(listaE.get(i).getCodigo());
         }
         empleadoLista.setListData(listaEmpleado);
+
+        MouseListener ml = new MouseAdapter() {
+            public void mouseClicked(MouseEvent me){
+                JList jl = (JList) me.getSource();
+                
+                if (me.getClickCount() == 2){
+                    int i = jl.locationToIndex(me.getPoint());
+                     String name = "";
+
+                    if (i >= 0){
+                        Object o = jl.getModel().getElementAt(i);
+                        name = o.toString();
+                    }
+                    switch(jl.getName()){
+                        case "proyecto":
+                            String tipo = "";
+                            int horas = 0;
+                            String iFecha = "";
+                            String tFecha = "";
+                            ArrayList<Empleado> empleados;
+                            ArrayList<Cliente> cliente;
+                            Proyecto p = ProyectoController.getProyectoByNombre(name);
+                            fProyecto.setTitle(name);
+                            nProyecto.setText(name);
+                            tProyecto.setText(p.getTipoProyecto());
+                            cliente = ProyectoController.getClientes(p.getCodigo());
+
+                            if (cliente.size() > 0)
+                                cProyecto.setText(cliente.get(0).getNombre());
+                            else
+                                cProyecto.setText("-");
+
+                            hEstimadas.setText(Integer.toString(p.getHoraEstimada()));
+                            fInicio.setText(p.getFechaInicio());
+                            pTermino.setText(p.getFechaTerminoPlanificada());
+                            fProyecto.pack();
+                            fProyecto.setVisible(true);                          
+                            break;
+                        case "cliente":
+                            Cliente c = ClienteController.getClienteByNombre(name);
+
+                            String rut = c.getRut();
+                            String dir = c.getDireccion();
+                            String razon = c.getRazonSocial();
+                            String giro = c.getGirocliente();
+                            String correo = c.getCorreo();
+                            
+                            nCliente.setText(name);
+                            
+                            rutCliente.setText(rut);
+                            dirCliente.setText(dir);
+                            razonCliente.setText(razon);
+                            gCliente.setText(giro);
+                            cCliente.setText(correo);
+              
+                            fCliente.setTitle(name);
+                            fCliente.pack();
+                            fCliente.setVisible(true);
+                            break;
+                           
+                        case "empleado":
+                            int codigo = 0;
+
+                            for (int index = 0; index < listaEmpleado.length; index++) {
+                                
+                                for (int j = 0; j < listaEmpleado.length; j++) {
+                                    if (listaEmpleado[index].equalsIgnoreCase(le[j][0])) {
+                                        codigo = Integer.parseInt(le[j][1]);
+                                    }
+                                }
+                            }
+                            
+                            Empleado e = EmpleadoController.getEmpleadoByCodigo(codigo);
+                            
+                            String nombre = e.getNombre();
+                            String apellido = e.getApellido();
+                            String incorporacion = e.getIncorporacion();
+                            String usuario = e.getUsuario();
+                            String dire = e.getDireccion();
+                            String rol = e.getRol().getRol();
+                            
+                            nEmpleado.setText(nombre);
+                            aEmpleado.setText(apellido);
+                            iEmpleado.setText(incorporacion);
+                            uEmpleado.setText(usuario);
+                            rEmpleado.setText(rol);
+                            
+                            fEmpleado.setTitle(name);
+                            fEmpleado.pack();
+                            fEmpleado.setVisible(true);
+                            
+                            break;
+                    }
+                }
+            }
+        };
+        MysqlConnection.desconectar();
+
+        proyectoLista.addMouseListener(ml);
+        clienteLista.addMouseListener(ml);
+        empleadoLista.addMouseListener(ml);
+
     }
     /**
      * @param args the command line arguments
@@ -167,7 +587,6 @@ public class AppItFrame extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        Comuna c = ComunaController.getComunaByCodigo(1);
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -192,13 +611,43 @@ public class AppItFrame extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel aEmpleado;
+    private javax.swing.JLabel cCliente;
+    private javax.swing.JLabel cProyecto;
     private javax.swing.JList<String> clienteLista;
+    private javax.swing.JLabel dirCliente;
     private javax.swing.JList<String> empleadoLista;
+    private javax.swing.JFrame fCliente;
+    private javax.swing.JFrame fEmpleado;
+    private javax.swing.JLabel fInicio;
+    private javax.swing.JFrame fProyecto;
+    private javax.swing.JLabel gCliente;
+    private javax.swing.JLabel hEstimadas;
+    private javax.swing.JLabel iEmpleado;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -206,6 +655,19 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JLabel nCliente;
+    private javax.swing.JLabel nEmpleado;
+    private javax.swing.JLabel nProyecto;
+    private javax.swing.JLabel pTermino;
     private javax.swing.JList<String> proyectoLista;
+    private javax.swing.JTable proyectosCliente;
+    private javax.swing.JLabel rEmpleado;
+    private javax.swing.JLabel razonCliente;
+    private javax.swing.JLabel rutCliente;
+    private javax.swing.JLabel tProyecto;
+    private javax.swing.JTable tablaProyecto;
+    private javax.swing.JLabel uEmpleado;
     // End of variables declaration//GEN-END:variables
 }
