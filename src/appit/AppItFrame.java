@@ -9,15 +9,18 @@ import controller.*;
 import database.MysqlConnection;
 
 import datos.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -85,6 +88,30 @@ public class AppItFrame extends javax.swing.JFrame {
         uEmpleado = new javax.swing.JLabel();
         rEmpleado = new javax.swing.JLabel();
         iEmpleado = new javax.swing.JLabel();
+        fNuevoProyecto = new javax.swing.JFrame();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        tProyectoBox = new javax.swing.JComboBox<>();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        nombreP = new javax.swing.JTextField();
+        npHorasEstimadas = new javax.swing.JTextField();
+        npFechaInicio = new javax.swing.JTextField();
+        npFechaTermino = new javax.swing.JTextField();
+        nuevoProyectoBoton = new javax.swing.JButton();
+        jLabel28 = new javax.swing.JLabel();
+        npClienteBox = new javax.swing.JComboBox<>();
+        npRecursoBoton = new javax.swing.JButton();
+        npempeladoBoton = new javax.swing.JButton();
+        addRecurso = new javax.swing.JFrame();
+        addRecursoBox = new javax.swing.JComboBox<>();
+        jLabel29 = new javax.swing.JLabel();
+        addRecursoBoton = new javax.swing.JButton();
+        addEmpleado = new javax.swing.JFrame();
+        jLabel30 = new javax.swing.JLabel();
+        addEmpleadoBox = new javax.swing.JComboBox<>();
+        addEmpleadoBoton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -95,6 +122,9 @@ public class AppItFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         empleadoLista = new javax.swing.JList<>();
+        nuevoProyecto = new javax.swing.JButton();
+        nuevoCliente = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -356,6 +386,181 @@ public class AppItFrame extends javax.swing.JFrame {
                 .addContainerGap(250, Short.MAX_VALUE))
         );
 
+        jLabel23.setText("Nombre:");
+
+        jLabel24.setText("Tipo Proyecto:");
+
+        tProyectoBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel25.setText("Horas estimadas:");
+
+        jLabel26.setText("Fecha inicio:");
+
+        jLabel27.setText("Fecha termino planificada:");
+
+        nuevoProyectoBoton.setText("Añadir");
+
+        jLabel28.setText("Cliente:");
+
+        npClienteBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        npRecursoBoton.setText("Añadir Recurso");
+        npRecursoBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                npRecursoBotonActionPerformed(evt);
+            }
+        });
+
+        npempeladoBoton.setText("Añadir Empleado");
+        npempeladoBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                npempeladoBotonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout fNuevoProyectoLayout = new javax.swing.GroupLayout(fNuevoProyecto.getContentPane());
+        fNuevoProyecto.getContentPane().setLayout(fNuevoProyectoLayout);
+        fNuevoProyectoLayout.setHorizontalGroup(
+            fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fNuevoProyectoLayout.createSequentialGroup()
+                .addGroup(fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fNuevoProyectoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(fNuevoProyectoLayout.createSequentialGroup()
+                                .addGroup(fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel24)
+                                    .addComponent(jLabel23))
+                                .addGap(66, 66, 66)
+                                .addGroup(fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tProyectoBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nombreP, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(fNuevoProyectoLayout.createSequentialGroup()
+                                .addGroup(fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel25)
+                                    .addComponent(jLabel26))
+                                .addGap(53, 53, 53)
+                                .addGroup(fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(npFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(npHorasEstimadas, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(fNuevoProyectoLayout.createSequentialGroup()
+                                .addGroup(fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel27)
+                                    .addComponent(jLabel28))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(npClienteBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(npFechaTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(fNuevoProyectoLayout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(nuevoProyectoBoton))
+                    .addGroup(fNuevoProyectoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(npRecursoBoton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(npempeladoBoton)))
+                .addContainerGap(163, Short.MAX_VALUE))
+        );
+        fNuevoProyectoLayout.setVerticalGroup(
+            fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fNuevoProyectoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(nombreP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(tProyectoBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(npHorasEstimadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(npFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(npFechaTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel28)
+                    .addComponent(npClienteBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(fNuevoProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(npRecursoBoton)
+                    .addComponent(npempeladoBoton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addComponent(nuevoProyectoBoton)
+                .addGap(43, 43, 43))
+        );
+
+        addRecursoBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel29.setText("Recurso:");
+
+        addRecursoBoton.setText("Añadir");
+
+        javax.swing.GroupLayout addRecursoLayout = new javax.swing.GroupLayout(addRecurso.getContentPane());
+        addRecurso.getContentPane().setLayout(addRecursoLayout);
+        addRecursoLayout.setHorizontalGroup(
+            addRecursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addRecursoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel29)
+                .addGap(18, 18, 18)
+                .addGroup(addRecursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addRecursoBoton)
+                    .addComponent(addRecursoBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+        addRecursoLayout.setVerticalGroup(
+            addRecursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addRecursoLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(addRecursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addRecursoBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(addRecursoBoton)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        jLabel30.setText("Empleado:");
+
+        addEmpleadoBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        addEmpleadoBoton.setText("Añadir Empleado");
+
+        javax.swing.GroupLayout addEmpleadoLayout = new javax.swing.GroupLayout(addEmpleado.getContentPane());
+        addEmpleado.getContentPane().setLayout(addEmpleadoLayout);
+        addEmpleadoLayout.setHorizontalGroup(
+            addEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addEmpleadoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel30)
+                .addGap(18, 18, 18)
+                .addComponent(addEmpleadoBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addEmpleadoLayout.createSequentialGroup()
+                .addContainerGap(58, Short.MAX_VALUE)
+                .addComponent(addEmpleadoBoton)
+                .addGap(48, 48, 48))
+        );
+        addEmpleadoLayout.setVerticalGroup(
+            addEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addEmpleadoLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(addEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(addEmpleadoBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(addEmpleadoBoton)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Proyectos");
@@ -385,6 +590,17 @@ public class AppItFrame extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(empleadoLista);
 
+        nuevoProyecto.setText("Nuevo Proyecto");
+        nuevoProyecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nuevoProyectoActionPerformed(evt);
+            }
+        });
+
+        nuevoCliente.setText("Nuevo Cliente");
+
+        jButton1.setText("Nuevo Empleado");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -393,13 +609,16 @@ public class AppItFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nuevoProyecto))
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nuevoCliente))
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
                     .addComponent(jLabel3)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -417,7 +636,12 @@ public class AppItFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addComponent(jScrollPane2)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nuevoProyecto)
+                    .addComponent(nuevoCliente)
+                    .addComponent(jButton1))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -441,6 +665,151 @@ public class AppItFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void nuevoProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoProyectoActionPerformed
+        nombreP.setText("");
+        npFechaInicio.setText("");
+        npHorasEstimadas.setText("");
+        npFechaTermino.setText("");
+        
+        Proyecto p = new Proyecto();
+        p.setCodigoTipo(-1);
+        String[] tipoProyecto = {"Pagina Web", "Aplicación Escritorio", "Aplicación Server", "Aplicación Móvil"};
+        int[] tpCodigo = {1, 2, 3, 4}; // el codigo de tipo proyecto no encesariamente son numeros correlativos
+        
+        
+        fNuevoProyecto.pack();
+        fNuevoProyecto.setVisible(true);
+
+        nuevoProyectoBoton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                boolean ready = true;
+                ArrayList<Recurso> res = new ArrayList<>();
+                ArrayList<Empleado> emp = new ArrayList<>();
+                String n = nombreP.getText();
+                int h = -1;
+                if(!tProyectoBox.getSelectedItem().toString().isEmpty()){
+                    for (int i = 0; i < tipoProyecto.length; i++) {
+                        if(tProyectoBox.getSelectedItem().toString().equalsIgnoreCase(tipoProyecto[i])){
+                            h = tpCodigo[i];
+                        }
+                    }
+                }
+                else{
+                    ready = false;
+                }
+                p.setCodigoTipo(h);
+                if(!npClienteBox.getSelectedItem().toString().isEmpty()){
+                    ArrayList<Cliente> cl = new ArrayList<>();
+                    Cliente c = ClienteController.getClienteByNombre(npClienteBox.getSelectedItem().toString());
+                    cl.add(c);
+                    p.setClientes(cl);
+                }
+                else{
+                    ready = false;
+                }
+                
+                if (!npHorasEstimadas.getText().isEmpty()) {
+                    h = Integer.parseInt(npHorasEstimadas.getText());
+                }
+                String fi = npFechaInicio.getText();
+                String ft = npFechaTermino.getText();
+                for(String r:npListaRecurso){
+                    res.add(RecursoController.getRecursoByNombre(r));
+                }
+                
+                for(int c:npListaEmpleado){
+                    emp.add(EmpleadoController.getEmpleadoByCodigo(c));
+                }                
+
+                if(n.isEmpty())
+                   ready = false;
+                if(h == -1)
+                    ready = false;
+                if(fi.isEmpty())
+                    ready = false;
+                if(ft.isEmpty())
+                    ready = false;
+                if(p.getCodigoTipo() == -1)
+                    ready = false;
+                System.out.println(p.getCodigoTipo());
+
+                if (ready){
+                    
+                    p.setNombre(n);
+                    p.setHoraEstimada(h);
+                    p.setFechaInicio(fi);
+                    p.setFechaTerminoPlanificada(ft);
+                    p.setRecursos(res);
+                    p.setEmpleados(emp);
+                    System.out.println("here");
+                    ProyectoController.nuevoProyecto(p);
+                    fNuevoProyecto.setVisible(false);
+                    myInitComponents();
+                }
+                else{
+                }
+                
+            }
+        });
+    }//GEN-LAST:event_nuevoProyectoActionPerformed
+
+    private void npRecursoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_npRecursoBotonActionPerformed
+
+            ArrayList<Recurso> listaR = RecursoController.getRecursos();
+            listaR.forEach(r -> {
+            addRecursoBox.addItem(r.getNombre());
+            });
+            
+            addRecurso.pack();
+            addRecurso.setVisible(true);
+            
+            addRecursoBoton.addActionListener(new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent e){
+                    npListaRecurso.add(addRecursoBox.getSelectedItem().toString());
+                    addRecurso.setVisible(false);
+                }
+            });
+
+    }//GEN-LAST:event_npRecursoBotonActionPerformed
+
+    private void npempeladoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_npempeladoBotonActionPerformed
+        ArrayList<Empleado> listaE = EmpleadoController.getEmpleados();
+        String[] listaEmpleado = new String [listaE.size()];
+        String[][] le = new String [listaE.size()][2];
+        addEmpleado.pack();
+        addEmpleado.setVisible(true);
+        for (int i = 0; i < listaE.size(); i++) {
+            String cname = listaE.get(i).getNombre() + " " + listaE.get(i).getApellido();
+            listaEmpleado[i] = cname;
+            le[i][0] = cname;
+            le[i][1] = Integer.toString(listaE.get(i).getCodigo());
+        }
+        
+        for (int i = 0; i < listaEmpleado.length; i++) {
+            addEmpleadoBox.addItem(listaEmpleado[i]);
+        }
+ 
+        addEmpleadoBoton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                String emp = addEmpleadoBox.getSelectedItem().toString();
+                if(!emp.isEmpty()){
+
+                    for (int i = 0; i < listaEmpleado.length; i++) {
+                        if(le[i][0].equalsIgnoreCase(emp)){
+                            npListaEmpleado.add(Integer.parseInt(le[i][1]));
+                            System.out.println(EmpleadoController.getEmpleadoByCodigo(Integer.parseInt(le[i][1])).getNombre());
+                        }
+                    }  
+                } 
+                addEmpleado.setVisible(false);
+            }
+        });
+        
+    }//GEN-LAST:event_npempeladoBotonActionPerformed
     public void myInitComponents() {
         proyectoLista.setName("proyecto");
         clienteLista.setName("cliente");
@@ -450,16 +819,16 @@ public class AppItFrame extends javax.swing.JFrame {
         ArrayList<Proyecto> listaP = ProyectoController.getProyectos();
         String[] listaProyectos = new String [listaP.size()];
         for (int i = 0; i < listaP.size(); i++) {
-
             listaProyectos[i] = listaP.get(i).getNombre();
         }
         proyectoLista.setListData(listaProyectos);
-        
+        tProyectoBox.removeAllItems();
         clienteLista.removeAll();
         ArrayList<Cliente> listaC = ClienteController.getClientes();
         String[] listaCliente = new String [listaC.size()];
         for (int i = 0; i < listaC.size(); i++) {
             listaCliente[i] = listaC.get(i).getNombre();
+            
         }
         clienteLista.setListData(listaCliente);
         
@@ -576,7 +945,30 @@ public class AppItFrame extends javax.swing.JFrame {
         proyectoLista.addMouseListener(ml);
         clienteLista.addMouseListener(ml);
         empleadoLista.addMouseListener(ml);
+        String[] tipoProyecto = {"Pagina Web", "Aplicación Escritorio", "Aplicación Server", "Aplicación Móvil"};
 
+        tProyectoBox.addItem("");
+        for(String t: tipoProyecto){
+            tProyectoBox.addItem(t);
+        }
+        
+        npClienteBox.removeAllItems();
+        npClienteBox.addItem("");
+        listaC.forEach(c -> {
+            npClienteBox.addItem(c.getNombre());
+        });
+        addRecursoBox.removeAllItems();
+        addEmpleadoBox.removeAllItems();
+   
+        //for (int index = 0; index < listaEmpleado.length; index++) {
+                                
+        //    for (int j = 0; j < listaEmpleado.length; j++) {
+        //        if (listaEmpleado[index].equalsIgnoreCase(le[j][0])) {
+        //            codigo = Integer.parseInt(le[j][1]);
+        //        }
+        //    }
+        //}
+        
     }
     /**
      * @param args the command line arguments
@@ -611,9 +1003,16 @@ public class AppItFrame extends javax.swing.JFrame {
             }
         });
     }
-    
+    private ArrayList<Integer> npListaEmpleado = new ArrayList<>();
+    private ArrayList<String> npListaRecurso = new ArrayList<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel aEmpleado;
+    private javax.swing.JFrame addEmpleado;
+    private javax.swing.JButton addEmpleadoBoton;
+    private javax.swing.JComboBox<String> addEmpleadoBox;
+    private javax.swing.JFrame addRecurso;
+    private javax.swing.JButton addRecursoBoton;
+    private javax.swing.JComboBox<String> addRecursoBox;
     private javax.swing.JLabel cCliente;
     private javax.swing.JLabel cProyecto;
     private javax.swing.JList<String> clienteLista;
@@ -622,10 +1021,12 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JFrame fCliente;
     private javax.swing.JFrame fEmpleado;
     private javax.swing.JLabel fInicio;
+    private javax.swing.JFrame fNuevoProyecto;
     private javax.swing.JFrame fProyecto;
     private javax.swing.JLabel gCliente;
     private javax.swing.JLabel hEstimadas;
     private javax.swing.JLabel iEmpleado;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -641,7 +1042,15 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -660,6 +1069,16 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JLabel nCliente;
     private javax.swing.JLabel nEmpleado;
     private javax.swing.JLabel nProyecto;
+    private javax.swing.JTextField nombreP;
+    private javax.swing.JComboBox<String> npClienteBox;
+    private javax.swing.JTextField npFechaInicio;
+    private javax.swing.JTextField npFechaTermino;
+    private javax.swing.JTextField npHorasEstimadas;
+    private javax.swing.JButton npRecursoBoton;
+    private javax.swing.JButton npempeladoBoton;
+    private javax.swing.JButton nuevoCliente;
+    private javax.swing.JButton nuevoProyecto;
+    private javax.swing.JButton nuevoProyectoBoton;
     private javax.swing.JLabel pTermino;
     private javax.swing.JList<String> proyectoLista;
     private javax.swing.JTable proyectosCliente;
@@ -667,6 +1086,7 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JLabel razonCliente;
     private javax.swing.JLabel rutCliente;
     private javax.swing.JLabel tProyecto;
+    private javax.swing.JComboBox<String> tProyectoBox;
     private javax.swing.JTable tablaProyecto;
     private javax.swing.JLabel uEmpleado;
     // End of variables declaration//GEN-END:variables

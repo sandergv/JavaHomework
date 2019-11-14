@@ -28,6 +28,26 @@ public class RecursoController {
         MysqlConnection.desconectar();
         return recurso;
     }
+    
+    public static Recurso getRecursoByNombre(String nombre){
+               Recurso recurso = new Recurso();
+        MysqlConnection.conectar();
+        ResultSet rs = MysqlConnection.select("recurso", "*", String.format("NOMBRERECURSO='%s'", nombre));
+        try{
+            if(rs.next()){
+                recurso.setCodigo(rs.getInt("CODIGORECURSO"));
+                recurso.setNombre(rs.getString("NOMBRERECURSO"));
+                recurso.setDescripcion(rs.getString("DESCRIPCIONRECURSO"));
+                recurso.setValor(rs.getInt("VALORRECURSO"));
+            }
+        }
+        catch(Exception e){
+            System.out.println("RECURSOControler: ");
+            e.printStackTrace();
+        }
+        MysqlConnection.desconectar();
+        return recurso; 
+    }
 
     public static ArrayList<Recurso> getRecursos(){
         ArrayList<Recurso> recursos = new ArrayList<>();
@@ -41,6 +61,8 @@ public class RecursoController {
                 recurso.setNombre(rs.getString("NOMBRERECURSO"));
                 recurso.setDescripcion(rs.getString("DESCRIPCIONRECURSO"));
                 recurso.setValor(rs.getInt("VALORRECURSO"));
+                
+                recursos.add(recurso);
             }
         }
         catch(Exception e){

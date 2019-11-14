@@ -144,12 +144,10 @@ public class ProyectoController {
             p.getEmpleados().forEach(em -> {
                 addEmpleadoProyecto(p.getCodigo(), em.getCodigo());
             });
-            p.getEtapas().forEach(et -> {
-                addEtapaProyecto(p.getCodigo(), et.getCodigo());
-            });
         }
         catch(Exception e){
-
+            System.out.println("err");
+            e.printStackTrace();
         }
         MysqlConnection.desconectar();
     }
