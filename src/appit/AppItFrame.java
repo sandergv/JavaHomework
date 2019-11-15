@@ -133,6 +133,27 @@ public class AppItFrame extends javax.swing.JFrame {
         jLabel38 = new javax.swing.JLabel();
         ncTelefono = new javax.swing.JTextField();
         addTBoton = new javax.swing.JButton();
+        fNuevoEmpleado = new javax.swing.JFrame();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        neNombre = new javax.swing.JTextField();
+        neApellido = new javax.swing.JTextField();
+        neUsuario = new javax.swing.JTextField();
+        neContrasena = new javax.swing.JTextField();
+        neSueldo = new javax.swing.JTextField();
+        neDireccion = new javax.swing.JTextField();
+        neComunaBox = new javax.swing.JComboBox<>();
+        neRolBox = new javax.swing.JComboBox<>();
+        neRegistrarBoton = new javax.swing.JButton();
+        jLabel48 = new javax.swing.JLabel();
+        neJefeBox = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -145,7 +166,7 @@ public class AppItFrame extends javax.swing.JFrame {
         empleadoLista = new javax.swing.JList<>();
         nuevoProyecto = new javax.swing.JButton();
         nuevoCliente = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        nuevoEmpleadoBoton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -706,6 +727,119 @@ public class AppItFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel39.setText("Nombre:");
+
+        jLabel40.setText("Apellido: ");
+
+        jLabel41.setText("Usuario:");
+
+        jLabel42.setText("Contraseña:");
+
+        jLabel44.setText("Sueldo:");
+
+        jLabel43.setText("Dirección:");
+
+        jLabel46.setText("Comuna:");
+
+        jLabel47.setText("Rol:");
+
+        neComunaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        neRolBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        neRegistrarBoton.setText("Registrar");
+
+        jLabel48.setText("Jefe:");
+
+        neJefeBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout fNuevoEmpleadoLayout = new javax.swing.GroupLayout(fNuevoEmpleado.getContentPane());
+        fNuevoEmpleado.getContentPane().setLayout(fNuevoEmpleadoLayout);
+        fNuevoEmpleadoLayout.setHorizontalGroup(
+            fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fNuevoEmpleadoLayout.createSequentialGroup()
+                .addGroup(fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fNuevoEmpleadoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel45)
+                            .addGroup(fNuevoEmpleadoLayout.createSequentialGroup()
+                                .addGroup(fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel39)
+                                    .addComponent(jLabel40)
+                                    .addComponent(jLabel41))
+                                .addGap(26, 26, 26)
+                                .addGroup(fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(neNombre)
+                                    .addComponent(neApellido)
+                                    .addComponent(neUsuario)))
+                            .addGroup(fNuevoEmpleadoLayout.createSequentialGroup()
+                                .addGroup(fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel42)
+                                    .addComponent(jLabel44)
+                                    .addComponent(jLabel43)
+                                    .addComponent(jLabel46)
+                                    .addComponent(jLabel47)
+                                    .addComponent(jLabel48))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(neContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                                    .addComponent(neSueldo)
+                                    .addComponent(neDireccion)
+                                    .addComponent(neComunaBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(neRolBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(neJefeBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(fNuevoEmpleadoLayout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addComponent(neRegistrarBoton)))
+                .addContainerGap(162, Short.MAX_VALUE))
+        );
+        fNuevoEmpleadoLayout.setVerticalGroup(
+            fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fNuevoEmpleadoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel39)
+                    .addComponent(neNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel40)
+                    .addComponent(neApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel41)
+                    .addComponent(neUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel42)
+                    .addComponent(neContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel44)
+                    .addComponent(neSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel43)
+                    .addComponent(neDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel46)
+                    .addComponent(neComunaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel47)
+                    .addComponent(neRolBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel48)
+                    .addComponent(neJefeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(neRegistrarBoton)
+                .addGap(19, 19, 19))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Proyectos");
@@ -749,7 +883,12 @@ public class AppItFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Nuevo Empleado");
+        nuevoEmpleadoBoton.setText("Nuevo Empleado");
+        nuevoEmpleadoBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nuevoEmpleadoBotonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -768,7 +907,7 @@ public class AppItFrame extends javax.swing.JFrame {
                     .addComponent(nuevoCliente))
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addComponent(nuevoEmpleadoBoton)
                     .addComponent(jLabel3)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -790,7 +929,7 @@ public class AppItFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nuevoProyecto)
                     .addComponent(nuevoCliente)
-                    .addComponent(jButton1))
+                    .addComponent(nuevoEmpleadoBoton))
                 .addContainerGap(115, Short.MAX_VALUE))
         );
 
@@ -1033,6 +1172,82 @@ public class AppItFrame extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_nuevoClienteActionPerformed
+
+    private void nuevoEmpleadoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoEmpleadoBotonActionPerformed
+        
+        ArrayList<Comuna> comunas = ComunaController.getComunas();
+        ArrayList<Rol> roles = RolController.getRoles();
+        ArrayList<Empleado> listaE = EmpleadoController.getEmpleados();
+        String[][] le = new String [listaE.size()][2];
+
+        for (int i = 0; i < listaE.size(); i++) {
+            String cname = listaE.get(i).getNombre() + " " + listaE.get(i).getApellido();
+            le[i][0] = cname;
+            neJefeBox.addItem(cname);
+            le[i][1] = Integer.toString(listaE.get(i).getCodigo());
+        }
+        
+        comunas.forEach(c -> {
+            neComunaBox.addItem(c.getNombre());
+        });
+        roles.forEach(r -> {
+            neRolBox.addItem(r.getRol());
+        });
+        
+        neRegistrarBoton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                Empleado empleado = new Empleado();
+                boolean ready = true;
+                
+                String name = neNombre.getText();
+                String lastname = neApellido.getText();
+                String user = neUsuario.getText();
+                String pass = neContrasena.getText();
+                String sSueldo = neSueldo.getText();
+                String dir = neDireccion.getText();
+                String jName = neJefeBox.getSelectedItem().toString();
+                String nComuna = neComunaBox.getSelectedItem().toString();
+                String nRol = neRolBox.getSelectedItem().toString();
+                
+                Comuna comuna = ComunaController.getComunaByName(nComuna);
+                Rol rol = RolController.getRolByName(nRol);
+                
+                if(!sSueldo.isEmpty())
+                        empleado.setSueldo(Integer.parseInt(sSueldo));
+                    else
+                        ready = false;
+                
+                if (ready) {
+                    
+                    empleado.setNombre(name);
+                    empleado.setApellido(lastname);
+                    empleado.setUsuario(user);
+                    empleado.setContrasena(pass);
+                    empleado.setDireccion(dir);
+                    empleado.setComuna(comuna);
+                    empleado.setRol(rol);
+                    
+                    if(!jName.isEmpty()){
+                        for (int i = 0; i < le.length; i++) {
+                            if(jName.equalsIgnoreCase(le[i][0])){
+                                empleado.setEmpleado(EmpleadoController.getEmpleadoByCodigo(Integer.parseInt(le[i][1])));
+                                break;
+                            }
+                        }
+                    }
+
+                    EmpleadoController.nuevoEmpleado(empleado);
+                    fNuevoEmpleado.setVisible(false);
+                    fNuevoEmpleado.dispose();
+                }
+            }
+        });
+        
+        fNuevoEmpleado.pack();
+        fNuevoEmpleado.setVisible(true);
+        
+    }//GEN-LAST:event_nuevoEmpleadoBotonActionPerformed
     public void myInitComponents() {
         proyectoLista.setName("proyecto");
         clienteLista.setName("cliente");
@@ -1184,6 +1399,13 @@ public class AppItFrame extends javax.swing.JFrame {
         addEmpleadoBox.removeAllItems();
         ncComunaBox.removeAllItems();
         ncComunaBox.addItem("");
+        neComunaBox.removeAllItems();
+        neRolBox.removeAllItems();
+        neComunaBox.addItem("");
+        neRolBox.addItem("");
+        neJefeBox.removeAllItems();
+        neJefeBox.addItem("");
+
    
         //for (int index = 0; index < listaEmpleado.length; index++) {
                                 
@@ -1249,12 +1471,12 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JFrame fEmpleado;
     private javax.swing.JLabel fInicio;
     private javax.swing.JFrame fNuevoCliente;
+    private javax.swing.JFrame fNuevoEmpleado;
     private javax.swing.JFrame fNuevoProyecto;
     private javax.swing.JFrame fProyecto;
     private javax.swing.JLabel gCliente;
     private javax.swing.JLabel hEstimadas;
     private javax.swing.JLabel iEmpleado;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1287,7 +1509,17 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1315,6 +1547,16 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JButton ncRegistrarClienteBoton;
     private javax.swing.JTextField ncRutCliente;
     private javax.swing.JTextField ncTelefono;
+    private javax.swing.JTextField neApellido;
+    private javax.swing.JComboBox<String> neComunaBox;
+    private javax.swing.JTextField neContrasena;
+    private javax.swing.JTextField neDireccion;
+    private javax.swing.JComboBox<String> neJefeBox;
+    private javax.swing.JTextField neNombre;
+    private javax.swing.JButton neRegistrarBoton;
+    private javax.swing.JComboBox<String> neRolBox;
+    private javax.swing.JTextField neSueldo;
+    private javax.swing.JTextField neUsuario;
     private javax.swing.JTextField nombreP;
     private javax.swing.JComboBox<String> npClienteBox;
     private javax.swing.JTextField npFechaInicio;
@@ -1323,6 +1565,7 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JButton npRecursoBoton;
     private javax.swing.JButton npempeladoBoton;
     private javax.swing.JButton nuevoCliente;
+    private javax.swing.JButton nuevoEmpleadoBoton;
     private javax.swing.JButton nuevoProyecto;
     private javax.swing.JButton nuevoProyectoBoton;
     private javax.swing.JLabel pTermino;

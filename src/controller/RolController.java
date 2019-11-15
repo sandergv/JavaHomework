@@ -28,6 +28,24 @@ public class RolController {
         MysqlConnection.desconectar();
         return rol;
     }
+    
+    public static Rol getRolByName(String name){
+        MysqlConnection.conectar();
+        Rol rol = new Rol();
+        ResultSet rs = MysqlConnection.select("rol", "*", String.format("DESCRIPCIONROL='%s'", name));
+        try {
+            if(rs.next()){
+                rol.setCodigo(rs.getInt("CODIGOROL"));
+                rol.setRol(rs.getString("DESCRIPCIONROL"));
+            }
+            rs.close();
+
+            rol.setPrivilegios(getPrivilegios(rol.getCodigo()));
+        }
+        catch(Exception e){}
+        MysqlConnection.desconectar();
+        return rol;
+    }
 
     public static ArrayList<Privilegio> getPrivilegios(int codigoRol){
         MysqlConnection.conectar();

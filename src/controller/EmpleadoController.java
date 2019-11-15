@@ -84,9 +84,15 @@ public class EmpleadoController {
         MysqlConnection.conectar();
         PreparedStatement pst = MysqlConnection.insert("empleado", columnas);
         try{
-            pst.setInt(1, e.getCodigoRol());
-            pst.setInt(2, e.getCodigoComuna());
-            pst.setInt(3, e.getCodigoEmpleado());
+            pst.setInt(1, e.getRol().getCodigo());
+            pst.setInt(2, e.getComuna().getCodigo());
+            try{
+                pst.setInt(3, e.getEmpleado().getCodigo());
+            }
+            catch(Exception ex){
+                
+            }
+            
             pst.setString(4, e.getNombre());
             pst.setString(5, e.getApellido());
             pst.setFloat(6, e.getSueldo());
