@@ -112,6 +112,27 @@ public class AppItFrame extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         addEmpleadoBox = new javax.swing.JComboBox<>();
         addEmpleadoBoton = new javax.swing.JButton();
+        fNuevoCliente = new javax.swing.JFrame();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        ncRutCliente = new javax.swing.JTextField();
+        ncNombreCliente = new javax.swing.JTextField();
+        ncRazonSocial = new javax.swing.JTextField();
+        ncGiroCliente = new javax.swing.JTextField();
+        ncCorreo = new javax.swing.JTextField();
+        ncDireccion = new javax.swing.JTextField();
+        ncComunaBox = new javax.swing.JComboBox<>();
+        ncRegistrarClienteBoton = new javax.swing.JButton();
+        ncAddTelefonoBoton = new javax.swing.JButton();
+        addTelefono = new javax.swing.JFrame();
+        jLabel38 = new javax.swing.JLabel();
+        ncTelefono = new javax.swing.JTextField();
+        addTBoton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -561,6 +582,130 @@ public class AppItFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel31.setText("RUT Cliente:");
+
+        jLabel32.setText("Nombre Cliente:");
+
+        jLabel33.setText("Razon Social:");
+
+        jLabel34.setText("Giro Cliente:");
+
+        jLabel35.setText("Correo:");
+
+        jLabel36.setText("Dirección:");
+
+        jLabel37.setText("Comuna:");
+
+        ncComunaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        ncRegistrarClienteBoton.setText("Registrar");
+
+        ncAddTelefonoBoton.setText("Añadir Telefono");
+
+        javax.swing.GroupLayout fNuevoClienteLayout = new javax.swing.GroupLayout(fNuevoCliente.getContentPane());
+        fNuevoCliente.getContentPane().setLayout(fNuevoClienteLayout);
+        fNuevoClienteLayout.setHorizontalGroup(
+            fNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fNuevoClienteLayout.createSequentialGroup()
+                .addGroup(fNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fNuevoClienteLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(fNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel31)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel33)
+                            .addComponent(jLabel34)
+                            .addComponent(jLabel35)
+                            .addComponent(jLabel36)
+                            .addComponent(jLabel37))
+                        .addGap(28, 28, 28)
+                        .addGroup(fNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ncComunaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(fNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(ncNombreCliente)
+                                .addComponent(ncRutCliente)
+                                .addComponent(ncRazonSocial)
+                                .addComponent(ncGiroCliente)
+                                .addComponent(ncCorreo)
+                                .addComponent(ncDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))))
+                    .addGroup(fNuevoClienteLayout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(ncRegistrarClienteBoton))
+                    .addGroup(fNuevoClienteLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(ncAddTelefonoBoton)))
+                .addContainerGap(155, Short.MAX_VALUE))
+        );
+        fNuevoClienteLayout.setVerticalGroup(
+            fNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fNuevoClienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(ncRutCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(ncNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(ncRazonSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(ncGiroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel35)
+                    .addComponent(ncCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel36)
+                    .addComponent(ncDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel37)
+                    .addComponent(ncComunaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(ncAddTelefonoBoton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(ncRegistrarClienteBoton)
+                .addGap(27, 27, 27))
+        );
+
+        jLabel38.setText("Telefono Cliente:");
+
+        addTBoton.setText("Añadir");
+
+        javax.swing.GroupLayout addTelefonoLayout = new javax.swing.GroupLayout(addTelefono.getContentPane());
+        addTelefono.getContentPane().setLayout(addTelefonoLayout);
+        addTelefonoLayout.setHorizontalGroup(
+            addTelefonoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addTelefonoLayout.createSequentialGroup()
+                .addGroup(addTelefonoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addTelefonoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel38)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ncTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addTelefonoLayout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(addTBoton)))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        addTelefonoLayout.setVerticalGroup(
+            addTelefonoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addTelefonoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(addTelefonoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel38)
+                    .addComponent(ncTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(addTBoton)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Proyectos");
@@ -598,6 +743,11 @@ public class AppItFrame extends javax.swing.JFrame {
         });
 
         nuevoCliente.setText("Nuevo Cliente");
+        nuevoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nuevoClienteActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Nuevo Empleado");
 
@@ -810,6 +960,79 @@ public class AppItFrame extends javax.swing.JFrame {
         });
         
     }//GEN-LAST:event_npempeladoBotonActionPerformed
+
+    private void nuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoClienteActionPerformed
+        fNuevoCliente.pack();
+        fNuevoCliente.setVisible(true);
+        Cliente cliente = new Cliente();
+        
+        ArrayList<Comuna> comunas = ComunaController.getComunas();
+        ArrayList<Integer> tel = new ArrayList<>();
+        comunas.forEach(c -> {
+            ncComunaBox.addItem(c.getNombre());
+        });
+        
+        ncAddTelefonoBoton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                ncTelefono.setText("");
+                addTelefono.pack();
+                addTelefono.setVisible(true);
+            }
+        });
+        
+        addTBoton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                if(!ncTelefono.getText().isEmpty()){
+                   tel.add(Integer.parseInt(ncTelefono.getText()));
+                   addTelefono.setVisible(false);
+                   addTelefono.dispose();
+                }
+                else{
+                }
+            }
+        });
+        
+        ncRegistrarClienteBoton.addActionListener(new ActionListener(){
+            boolean ready = true;
+
+            @Override
+            public void actionPerformed(ActionEvent e){
+                String rut = ncRutCliente.getText();
+                String nombre = ncNombreCliente.getText();
+                String giro = ncGiroCliente.getText();
+                String razon = ncRazonSocial.getText();
+                String correo = ncCorreo.getText();
+                String dir = ncDireccion.getText();
+                String comuna = ncComunaBox.getSelectedItem().toString();
+                
+                Comuna c = ComunaController.getComunaByName(comuna);
+                
+                cliente.setRut(rut);
+                cliente.setNombre(nombre);
+                cliente.setGirocliente(giro);
+                cliente.setRazonSocial(razon);
+                cliente.setCorreo(correo);
+                cliente.setDireccion(dir);
+                cliente.setComuna(c);
+                
+                
+                cliente.setTelefonos(tel);
+                
+                if (ready) {
+                    ClienteController.nuevoCliente(cliente);
+                    fNuevoCliente.setVisible(false);
+                    fNuevoCliente.dispose();
+                    myInitComponents();
+                }
+                else{
+                    
+                }
+                
+            }
+        });
+    }//GEN-LAST:event_nuevoClienteActionPerformed
     public void myInitComponents() {
         proyectoLista.setName("proyecto");
         clienteLista.setName("cliente");
@@ -959,6 +1182,8 @@ public class AppItFrame extends javax.swing.JFrame {
         });
         addRecursoBox.removeAllItems();
         addEmpleadoBox.removeAllItems();
+        ncComunaBox.removeAllItems();
+        ncComunaBox.addItem("");
    
         //for (int index = 0; index < listaEmpleado.length; index++) {
                                 
@@ -1013,6 +1238,8 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JFrame addRecurso;
     private javax.swing.JButton addRecursoBoton;
     private javax.swing.JComboBox<String> addRecursoBox;
+    private javax.swing.JButton addTBoton;
+    private javax.swing.JFrame addTelefono;
     private javax.swing.JLabel cCliente;
     private javax.swing.JLabel cProyecto;
     private javax.swing.JList<String> clienteLista;
@@ -1021,6 +1248,7 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JFrame fCliente;
     private javax.swing.JFrame fEmpleado;
     private javax.swing.JLabel fInicio;
+    private javax.swing.JFrame fNuevoCliente;
     private javax.swing.JFrame fNuevoProyecto;
     private javax.swing.JFrame fProyecto;
     private javax.swing.JLabel gCliente;
@@ -1051,6 +1279,14 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1069,6 +1305,16 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JLabel nCliente;
     private javax.swing.JLabel nEmpleado;
     private javax.swing.JLabel nProyecto;
+    private javax.swing.JButton ncAddTelefonoBoton;
+    private javax.swing.JComboBox<String> ncComunaBox;
+    private javax.swing.JTextField ncCorreo;
+    private javax.swing.JTextField ncDireccion;
+    private javax.swing.JTextField ncGiroCliente;
+    private javax.swing.JTextField ncNombreCliente;
+    private javax.swing.JTextField ncRazonSocial;
+    private javax.swing.JButton ncRegistrarClienteBoton;
+    private javax.swing.JTextField ncRutCliente;
+    private javax.swing.JTextField ncTelefono;
     private javax.swing.JTextField nombreP;
     private javax.swing.JComboBox<String> npClienteBox;
     private javax.swing.JTextField npFechaInicio;

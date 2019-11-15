@@ -98,8 +98,6 @@ public class ProyectoController {
 
                 proyectos.add(p);
             }   
-            
-
         } catch (Exception e) {
         }
         MysqlConnection.desconectar();
@@ -159,6 +157,9 @@ public class ProyectoController {
         try {
             pst.setString(1, RutCliente);
             pst.setInt(2, codigoProyecto);
+            
+            pst.execute();
+            pst.close();
         }
         catch (Exception e){
 
@@ -172,6 +173,9 @@ public class ProyectoController {
         try {
             pst.setInt(1, codigoEmpleado);
             pst.setInt(2, codigoProyecto);
+            
+            pst.execute();
+            pst.close();
         }
         catch (Exception e){
 
@@ -186,6 +190,9 @@ public class ProyectoController {
         try {
             pst.setInt(1, codigoRecurso);
             pst.setInt(2, codigoProyecto);
+            
+            pst.execute();
+            pst.close();
         }
         catch (Exception e){
 
@@ -199,6 +206,9 @@ public class ProyectoController {
         try {
             pst.setInt(1, codigoEtapa);
             pst.setInt(2, codigoProyecto);
+            
+            pst.execute();
+            pst.close();
         }
         catch (Exception e){
 

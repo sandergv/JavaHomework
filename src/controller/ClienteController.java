@@ -159,7 +159,7 @@ public class ClienteController {
         PreparedStatement pst = MysqlConnection.insert("cliente", columns);
         try{
             pst.setString(1, c.getRut());
-            pst.setInt(2, c.getCodigoComuna());
+            pst.setInt(2, c.getComuna().getCodigo());
             pst.setString(3, c.getNombre());
             pst.setString(4, c.getDireccion());
             pst.setString(5, c.getRazonSocial());
