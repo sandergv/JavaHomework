@@ -20,6 +20,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import utiles.DateValidation;
 
 
 /**
@@ -56,11 +57,9 @@ public class AppItFrame extends javax.swing.JFrame {
         hEstimadas = new javax.swing.JLabel();
         fInicio = new javax.swing.JLabel();
         pTermino = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tablaProyecto = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
         cProyecto = new javax.swing.JLabel();
+        finalizarProyectoBoton = new javax.swing.JButton();
         fCliente = new javax.swing.JFrame();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -154,6 +153,18 @@ public class AppItFrame extends javax.swing.JFrame {
         neRegistrarBoton = new javax.swing.JButton();
         jLabel48 = new javax.swing.JLabel();
         neJefeBox = new javax.swing.JComboBox<>();
+        fFinalizarProyecto = new javax.swing.JFrame();
+        jLabel9 = new javax.swing.JLabel();
+        fpNombreProyecto = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        fpComentario = new javax.swing.JTextArea();
+        fpComentarioBoton = new javax.swing.JButton();
+        jLabel50 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        fpDefecto = new javax.swing.JTextArea();
+        fpDefectoBoton = new javax.swing.JButton();
+        fpFinalizar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -167,6 +178,9 @@ public class AppItFrame extends javax.swing.JFrame {
         nuevoProyecto = new javax.swing.JButton();
         nuevoCliente = new javax.swing.JButton();
         nuevoEmpleadoBoton = new javax.swing.JButton();
+        jLabel51 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        proyectosTerminados = new javax.swing.JList<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -191,14 +205,16 @@ public class AppItFrame extends javax.swing.JFrame {
 
         pTermino.setText("123");
 
-        jLabel9.setText("Empleados asociados");
-
-        tablaProyecto.setAutoCreateColumnsFromModel(false);
-        jScrollPane4.setViewportView(tablaProyecto);
-
         jLabel10.setText("Cliente Proyecto:");
 
         cProyecto.setText("123");
+
+        finalizarProyectoBoton.setText("Finalizar Proyecto");
+        finalizarProyectoBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finalizarProyectoBotonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout fProyectoLayout = new javax.swing.GroupLayout(fProyecto.getContentPane());
         fProyecto.getContentPane().setLayout(fProyectoLayout);
@@ -207,8 +223,7 @@ public class AppItFrame extends javax.swing.JFrame {
             .addGroup(fProyectoLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
+                    .addComponent(finalizarProyectoBoton)
                     .addGroup(fProyectoLayout.createSequentialGroup()
                         .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -225,7 +240,7 @@ public class AppItFrame extends javax.swing.JFrame {
                             .addComponent(tProyecto)
                             .addComponent(nProyecto)
                             .addComponent(cProyecto))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(249, Short.MAX_VALUE))
         );
         fProyectoLayout.setVerticalGroup(
             fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,11 +269,9 @@ public class AppItFrame extends javax.swing.JFrame {
                 .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(pTermino))
-                .addGap(43, 43, 43)
-                .addComponent(jLabel9)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
+                .addGap(67, 67, 67)
+                .addComponent(finalizarProyectoBoton)
+                .addGap(72, 72, 72))
         );
 
         jLabel11.setText("Nombre Cliente:");
@@ -840,6 +853,81 @@ public class AppItFrame extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
+        jLabel9.setText("Proyecto:");
+
+        fpNombreProyecto.setText("  ");
+
+        jLabel49.setText("Comentario:");
+
+        fpComentario.setColumns(20);
+        fpComentario.setRows(5);
+        jScrollPane4.setViewportView(fpComentario);
+
+        fpComentarioBoton.setText("Añadir Comentario");
+
+        jLabel50.setText("Defecto:");
+
+        fpDefecto.setColumns(20);
+        fpDefecto.setRows(5);
+        jScrollPane6.setViewportView(fpDefecto);
+
+        fpDefectoBoton.setText("Añadir Defecto");
+
+        fpFinalizar.setText("Finalizar");
+
+        javax.swing.GroupLayout fFinalizarProyectoLayout = new javax.swing.GroupLayout(fFinalizarProyecto.getContentPane());
+        fFinalizarProyecto.getContentPane().setLayout(fFinalizarProyectoLayout);
+        fFinalizarProyectoLayout.setHorizontalGroup(
+            fFinalizarProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fFinalizarProyectoLayout.createSequentialGroup()
+                .addGroup(fFinalizarProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fFinalizarProyectoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(fFinalizarProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(fFinalizarProyectoLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(fpNombreProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(fFinalizarProyectoLayout.createSequentialGroup()
+                                .addGroup(fFinalizarProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel49)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fpComentarioBoton))
+                                .addGap(48, 48, 48)
+                                .addGroup(fFinalizarProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(fpDefectoBoton)
+                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel50)))))
+                    .addGroup(fFinalizarProyectoLayout.createSequentialGroup()
+                        .addGap(181, 181, 181)
+                        .addComponent(fpFinalizar)))
+                .addContainerGap(74, Short.MAX_VALUE))
+        );
+        fFinalizarProyectoLayout.setVerticalGroup(
+            fFinalizarProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fFinalizarProyectoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fFinalizarProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(fpNombreProyecto))
+                .addGap(35, 35, 35)
+                .addGroup(fFinalizarProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(fFinalizarProyectoLayout.createSequentialGroup()
+                        .addGroup(fFinalizarProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel49)
+                            .addComponent(jLabel50))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fFinalizarProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fpComentarioBoton)
+                    .addComponent(fpDefectoBoton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(fpFinalizar)
+                .addGap(24, 24, 24))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Proyectos");
@@ -890,6 +978,15 @@ public class AppItFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel51.setText("Proyectos Terminados:");
+
+        proyectosTerminados.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane7.setViewportView(proyectosTerminados);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -897,19 +994,23 @@ public class AppItFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nuevoProyecto))
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nuevoCliente))
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nuevoEmpleadoBoton)
-                    .addComponent(jLabel3)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nuevoProyecto))
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nuevoCliente))
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nuevoEmpleadoBoton)
+                            .addComponent(jLabel3)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel51)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -930,7 +1031,11 @@ public class AppItFrame extends javax.swing.JFrame {
                     .addComponent(nuevoProyecto)
                     .addComponent(nuevoCliente)
                     .addComponent(nuevoEmpleadoBoton))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel51)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -955,12 +1060,15 @@ public class AppItFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    // Botton nuevo proyecto
     private void nuevoProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoProyectoActionPerformed
         nombreP.setText("");
         npFechaInicio.setText("");
         npHorasEstimadas.setText("");
         npFechaTermino.setText("");
-        
+        ArrayList<String> estados = new ArrayList<>();
+        estados.add("iniciado");
         Proyecto p = new Proyecto();
         p.setCodigoTipo(-1);
         String[] tipoProyecto = {"Pagina Web", "Aplicación Escritorio", "Aplicación Server", "Aplicación Móvil"};
@@ -1011,6 +1119,11 @@ public class AppItFrame extends javax.swing.JFrame {
                 for(int c:npListaEmpleado){
                     emp.add(EmpleadoController.getEmpleadoByCodigo(c));
                 }                
+                if (DateValidation.validateDate(fi))
+                    ready = false;
+                if (DateValidation.validateDate(ft))
+                    ready = false;
+
 
                 if(n.isEmpty())
                    ready = false;
@@ -1032,6 +1145,7 @@ public class AppItFrame extends javax.swing.JFrame {
                     p.setFechaTerminoPlanificada(ft);
                     p.setRecursos(res);
                     p.setEmpleados(emp);
+                    p.setEstados(estados);
                     System.out.println("here");
                     ProyectoController.nuevoProyecto(p);
                     fNuevoProyecto.setVisible(false);
@@ -1043,7 +1157,7 @@ public class AppItFrame extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_nuevoProyectoActionPerformed
-
+    // boton para añadir recursos
     private void npRecursoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_npRecursoBotonActionPerformed
 
             ArrayList<Recurso> listaR = RecursoController.getRecursos();
@@ -1099,7 +1213,7 @@ public class AppItFrame extends javax.swing.JFrame {
         });
         
     }//GEN-LAST:event_npempeladoBotonActionPerformed
-
+    // Boton para añadir Cliente
     private void nuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoClienteActionPerformed
         fNuevoCliente.pack();
         fNuevoCliente.setVisible(true);
@@ -1172,7 +1286,7 @@ public class AppItFrame extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_nuevoClienteActionPerformed
-
+    // boton para añadir empleado
     private void nuevoEmpleadoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoEmpleadoBotonActionPerformed
         
         ArrayList<Comuna> comunas = ComunaController.getComunas();
@@ -1209,6 +1323,7 @@ public class AppItFrame extends javax.swing.JFrame {
                 String jName = neJefeBox.getSelectedItem().toString();
                 String nComuna = neComunaBox.getSelectedItem().toString();
                 String nRol = neRolBox.getSelectedItem().toString();
+                
                 
                 Comuna comuna = ComunaController.getComunaByName(nComuna);
                 Rol rol = RolController.getRolByName(nRol);
@@ -1248,6 +1363,42 @@ public class AppItFrame extends javax.swing.JFrame {
         fNuevoEmpleado.setVisible(true);
         
     }//GEN-LAST:event_nuevoEmpleadoBotonActionPerformed
+    // boton Finalizar proyecto incompleto
+    private void finalizarProyectoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarProyectoBotonActionPerformed
+        String pName = finalizarProyectoBoton.getName();
+        Proyecto proyecto = ProyectoController.getProyectoByNombre(pName);
+        
+        fpNombreProyecto.setText(pName);
+        fFinalizarProyecto.pack();
+        fFinalizarProyecto.setVisible(true);
+        
+        fpComentarioBoton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                fpComentario.setText("");
+            }
+        });
+        
+        fpDefectoBoton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                fpDefecto.setText("");
+            }
+        });
+        
+        fpFinalizar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                ProyectoController.addEstadoProyecto(2, proyecto.getCodigo());
+       
+                fFinalizarProyecto.setVisible(false);
+                fProyecto.setVisible(false);
+                myInitComponents();
+            }
+        });
+        
+    }//GEN-LAST:event_finalizarProyectoBotonActionPerformed
+    // inicialización de componentes en la interfaz principal
     public void myInitComponents() {
         proyectoLista.setName("proyecto");
         clienteLista.setName("cliente");
@@ -1257,7 +1408,17 @@ public class AppItFrame extends javax.swing.JFrame {
         ArrayList<Proyecto> listaP = ProyectoController.getProyectos();
         String[] listaProyectos = new String [listaP.size()];
         for (int i = 0; i < listaP.size(); i++) {
-            listaProyectos[i] = listaP.get(i).getNombre();
+            boolean isEnd = false;
+            for(String estado:listaP.get(i).getEstados()){
+                System.out.println("here");
+                if(estado.equalsIgnoreCase("terminado")){
+                    isEnd = true;
+                    proyectosTerminadosLista.add(listaP.get(i).getNombre());
+                    System.out.println("here");
+                }
+            }
+            if(!isEnd)
+                listaProyectos[i] = listaP.get(i).getNombre(); 
         }
         proyectoLista.setListData(listaProyectos);
         tProyectoBox.removeAllItems();
@@ -1282,7 +1443,8 @@ public class AppItFrame extends javax.swing.JFrame {
             le[i][1] = Integer.toString(listaE.get(i).getCodigo());
         }
         empleadoLista.setListData(listaEmpleado);
-
+        
+        // carga los datos de los objetos en un nuevo jframe para visualizar los datos
         MouseListener ml = new MouseAdapter() {
             public void mouseClicked(MouseEvent me){
                 JList jl = (JList) me.getSource();
@@ -1308,7 +1470,7 @@ public class AppItFrame extends javax.swing.JFrame {
                             nProyecto.setText(name);
                             tProyecto.setText(p.getTipoProyecto());
                             cliente = ProyectoController.getClientes(p.getCodigo());
-
+                            System.out.println(ProyectoController.getEstados(p.getCodigo()));
                             if (cliente.size() > 0)
                                 cProyecto.setText(cliente.get(0).getNombre());
                             else
@@ -1317,6 +1479,7 @@ public class AppItFrame extends javax.swing.JFrame {
                             hEstimadas.setText(Integer.toString(p.getHoraEstimada()));
                             fInicio.setText(p.getFechaInicio());
                             pTermino.setText(p.getFechaTerminoPlanificada());
+                            finalizarProyectoBoton.setName(name);
                             fProyecto.pack();
                             fProyecto.setVisible(true);                          
                             break;
@@ -1406,7 +1569,14 @@ public class AppItFrame extends javax.swing.JFrame {
         neJefeBox.removeAllItems();
         neJefeBox.addItem("");
 
-   
+        
+        String[] endP = new String[proyectosTerminadosLista.size()];
+        for (int i = 0; i < endP.length; i++) {
+            endP[i] = proyectosTerminadosLista.get(i);
+        }
+        System.out.println(proyectosTerminadosLista.size());
+        proyectosTerminados.setListData(endP);
+        
         //for (int index = 0; index < listaEmpleado.length; index++) {
                                 
         //    for (int j = 0; j < listaEmpleado.length; j++) {
@@ -1450,6 +1620,7 @@ public class AppItFrame extends javax.swing.JFrame {
             }
         });
     }
+    private ArrayList<String> proyectosTerminadosLista = new ArrayList<>();
     private ArrayList<Integer> npListaEmpleado = new ArrayList<>();
     private ArrayList<String> npListaRecurso = new ArrayList<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1469,11 +1640,19 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JList<String> empleadoLista;
     private javax.swing.JFrame fCliente;
     private javax.swing.JFrame fEmpleado;
+    private javax.swing.JFrame fFinalizarProyecto;
     private javax.swing.JLabel fInicio;
     private javax.swing.JFrame fNuevoCliente;
     private javax.swing.JFrame fNuevoEmpleado;
     private javax.swing.JFrame fNuevoProyecto;
     private javax.swing.JFrame fProyecto;
+    private javax.swing.JButton finalizarProyectoBoton;
+    private javax.swing.JTextArea fpComentario;
+    private javax.swing.JButton fpComentarioBoton;
+    private javax.swing.JTextArea fpDefecto;
+    private javax.swing.JButton fpDefectoBoton;
+    private javax.swing.JButton fpFinalizar;
+    private javax.swing.JLabel fpNombreProyecto;
     private javax.swing.JLabel gCliente;
     private javax.swing.JLabel hEstimadas;
     private javax.swing.JLabel iEmpleado;
@@ -1520,7 +1699,10 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1534,6 +1716,8 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JLabel nCliente;
     private javax.swing.JLabel nEmpleado;
     private javax.swing.JLabel nProyecto;
@@ -1571,12 +1755,12 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JLabel pTermino;
     private javax.swing.JList<String> proyectoLista;
     private javax.swing.JTable proyectosCliente;
+    private javax.swing.JList<String> proyectosTerminados;
     private javax.swing.JLabel rEmpleado;
     private javax.swing.JLabel razonCliente;
     private javax.swing.JLabel rutCliente;
     private javax.swing.JLabel tProyecto;
     private javax.swing.JComboBox<String> tProyectoBox;
-    private javax.swing.JTable tablaProyecto;
     private javax.swing.JLabel uEmpleado;
     // End of variables declaration//GEN-END:variables
 }

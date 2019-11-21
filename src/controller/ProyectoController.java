@@ -142,6 +142,7 @@ public class ProyectoController {
             p.getEmpleados().forEach(em -> {
                 addEmpleadoProyecto(p.getCodigo(), em.getCodigo());
             });
+            addEstadoProyecto(1, p.getCodigo());
         }
         catch(Exception e){
             System.out.println("err");
@@ -156,6 +157,23 @@ public class ProyectoController {
         PreparedStatement pst = MysqlConnection.insert("proyectocliente", columns);
         try {
             pst.setString(1, RutCliente);
+            pst.setInt(2, codigoProyecto);
+            
+            pst.execute();
+            pst.close();
+        }
+        catch (Exception e){
+
+        }
+        MysqlConnection.desconectar();
+    }
+    
+    public static void addEstadoProyecto(int codigoEstado, int codigoProyecto){
+        String[] columns = {"CODIGOESTADOPROYECTO", "CODIGOPROYECTO"};
+        MysqlConnection.conectar();
+        PreparedStatement pst = MysqlConnection.insert("proyectoestadoproyecto", columns);
+        try {
+            pst.setInt(1, codigoEstado);
             pst.setInt(2, codigoProyecto);
             
             pst.execute();
@@ -286,18 +304,19 @@ public class ProyectoController {
         ResultSet rs = MysqlConnection.select("proyectoestadoproyecto", "*", "CODIGOPROYECTO="+codigo);
         try {
             while (rs.next()) {
-                rc.add(rs.getInt("CODIGOESTADO"));
+                rc.add(rs.getInt("CODIGOESTADOPROYECTO"));
             }
             rs.close();
             for(int r: rc){
-                rs = MysqlConnection.select("estadoproyecto", "*", "CODIGOESTADOPROYECTO"+r);
+                rs = MysqlConnection.select("estadoproyecto", "*", "CODIGOESTADOPROYECTO="+r);
                 while(rs.next()){
                     c.add(rs.getString("DESCRIPCIONESTADOPROYECTO")); // estado controller
                 }
             }
         }
         catch (Exception e){
-
+            System.out.println("err");
+            e.printStackTrace();
         }
         MysqlConnection.desconectar();
         return c;

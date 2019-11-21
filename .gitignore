@@ -3,3 +3,4 @@ build
 out
 JavaHomework.iml
 docker-compose.yml
+/dist/
