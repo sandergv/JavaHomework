@@ -46,36 +46,6 @@ public class AppItFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        fProyecto = new javax.swing.JFrame();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        nProyecto = new javax.swing.JLabel();
-        tProyecto = new javax.swing.JLabel();
-        hEstimadas = new javax.swing.JLabel();
-        fInicio = new javax.swing.JLabel();
-        pTermino = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        cProyecto = new javax.swing.JLabel();
-        finalizarProyectoBoton = new javax.swing.JButton();
-        fCliente = new javax.swing.JFrame();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        proyectosCliente = new javax.swing.JTable();
-        nCliente = new javax.swing.JLabel();
-        rutCliente = new javax.swing.JLabel();
-        razonCliente = new javax.swing.JLabel();
-        dirCliente = new javax.swing.JLabel();
-        cCliente = new javax.swing.JLabel();
-        gCliente = new javax.swing.JLabel();
         fEmpleado = new javax.swing.JFrame();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -184,195 +154,6 @@ public class AppItFrame extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-
-        jLabel4.setText("Nombre Proyecto:");
-
-        jLabel5.setText("Tipo Proyecto:");
-
-        jLabel6.setText("Horas Estimadas:");
-
-        jLabel7.setText("Fecha Inicio:");
-
-        jLabel8.setText("Planificación Termino:");
-
-        nProyecto.setText("123");
-
-        tProyecto.setText("123");
-
-        hEstimadas.setText("123");
-
-        fInicio.setText("123");
-
-        pTermino.setText("123");
-
-        jLabel10.setText("Cliente Proyecto:");
-
-        cProyecto.setText("123");
-
-        finalizarProyectoBoton.setText("Finalizar Proyecto");
-        finalizarProyectoBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                finalizarProyectoBotonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout fProyectoLayout = new javax.swing.GroupLayout(fProyecto.getContentPane());
-        fProyecto.getContentPane().setLayout(fProyectoLayout);
-        fProyectoLayout.setHorizontalGroup(
-            fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fProyectoLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(finalizarProyectoBoton)
-                    .addGroup(fProyectoLayout.createSequentialGroup()
-                        .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel7))
-                        .addGap(29, 29, 29)
-                        .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fInicio)
-                            .addComponent(pTermino)
-                            .addComponent(hEstimadas)
-                            .addComponent(tProyecto)
-                            .addComponent(nProyecto)
-                            .addComponent(cProyecto))))
-                .addContainerGap(249, Short.MAX_VALUE))
-        );
-        fProyectoLayout.setVerticalGroup(
-            fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fProyectoLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(nProyecto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(tProyecto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(cProyecto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(hEstimadas))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(fInicio))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fProyectoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(pTermino))
-                .addGap(67, 67, 67)
-                .addComponent(finalizarProyectoBoton)
-                .addGap(72, 72, 72))
-        );
-
-        jLabel11.setText("Nombre Cliente:");
-
-        jLabel12.setText("Razon Social:");
-
-        jLabel13.setText("Rut Cliente:");
-
-        jLabel14.setText("Dirección:");
-
-        jLabel15.setText("Correo:");
-
-        jLabel16.setText("Giro:");
-
-        jLabel17.setText("Proyectos asociados:");
-
-        proyectosCliente.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane5.setViewportView(proyectosCliente);
-
-        nCliente.setText("jLabel18");
-
-        rutCliente.setText("jLabel19");
-
-        razonCliente.setText("jLabel20");
-
-        dirCliente.setText("jLabel21");
-
-        cCliente.setText("jLabel22");
-
-        gCliente.setText("jLabel23");
-
-        javax.swing.GroupLayout fClienteLayout = new javax.swing.GroupLayout(fCliente.getContentPane());
-        fCliente.getContentPane().setLayout(fClienteLayout);
-        fClienteLayout.setHorizontalGroup(
-            fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fClienteLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17)
-                    .addGroup(fClienteLayout.createSequentialGroup()
-                        .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel16))
-                        .addGap(18, 18, 18)
-                        .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(gCliente)
-                            .addComponent(cCliente)
-                            .addComponent(dirCliente)
-                            .addComponent(razonCliente)
-                            .addComponent(rutCliente)
-                            .addComponent(nCliente))))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-        fClienteLayout.setVerticalGroup(
-            fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fClienteLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(nCliente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(rutCliente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(razonCliente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(dirCliente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(cCliente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(gCliente))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         jLabel18.setText("Nombre Empleado:");
 
@@ -1363,42 +1144,8 @@ public class AppItFrame extends javax.swing.JFrame {
         fNuevoEmpleado.setVisible(true);
         
     }//GEN-LAST:event_nuevoEmpleadoBotonActionPerformed
-    // boton Finalizar proyecto incompleto
-    private void finalizarProyectoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarProyectoBotonActionPerformed
-        String pName = finalizarProyectoBoton.getName();
-        Proyecto proyecto = ProyectoController.getProyectoByNombre(pName);
-        
-        fpNombreProyecto.setText(pName);
-        fFinalizarProyecto.pack();
-        fFinalizarProyecto.setVisible(true);
-        
-        fpComentarioBoton.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                fpComentario.setText("");
-            }
-        });
-        
-        fpDefectoBoton.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                fpDefecto.setText("");
-            }
-        });
-        
-        fpFinalizar.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                ProyectoController.addEstadoProyecto(2, proyecto.getCodigo());
-       
-                fFinalizarProyecto.setVisible(false);
-                fProyecto.setVisible(false);
-                myInitComponents();
-            }
-        });
-        
-    }//GEN-LAST:event_finalizarProyectoBotonActionPerformed
-    // inicialización de componentes en la interfaz principal
+
+   // inicialización de componentes en la interfaz principal
     public void myInitComponents() {
         proyectoLista.setName("proyecto");
         clienteLista.setName("cliente");
@@ -1458,84 +1205,23 @@ public class AppItFrame extends javax.swing.JFrame {
                         name = o.toString();
                     }
                     switch(jl.getName()){
+                        
                         case "proyecto":
-                            String tipo = "";
-                            int horas = 0;
-                            String iFecha = "";
-                            String tFecha = "";
-                            ArrayList<Empleado> empleados;
-                            ArrayList<Cliente> cliente;
-                            Proyecto p = ProyectoController.getProyectoByNombre(name);
-                            fProyecto.setTitle(name);
-                            nProyecto.setText(name);
-                            tProyecto.setText(p.getTipoProyecto());
-                            cliente = ProyectoController.getClientes(p.getCodigo());
-                            System.out.println(ProyectoController.getEstados(p.getCodigo()));
-                            if (cliente.size() > 0)
-                                cProyecto.setText(cliente.get(0).getNombre());
-                            else
-                                cProyecto.setText("-");
 
-                            hEstimadas.setText(Integer.toString(p.getHoraEstimada()));
-                            fInicio.setText(p.getFechaInicio());
-                            pTermino.setText(p.getFechaTerminoPlanificada());
-                            finalizarProyectoBoton.setName(name);
-                            fProyecto.pack();
-                            fProyecto.setVisible(true);                          
+                            FProyecto f = new FProyecto(name);
+                            f.setVisible(true);                          
                             break;
+                            
                         case "cliente":
-                            Cliente c = ClienteController.getClienteByNombre(name);
-
-                            String rut = c.getRut();
-                            String dir = c.getDireccion();
-                            String razon = c.getRazonSocial();
-                            String giro = c.getGirocliente();
-                            String correo = c.getCorreo();
                             
-                            nCliente.setText(name);
-                            
-                            rutCliente.setText(rut);
-                            dirCliente.setText(dir);
-                            razonCliente.setText(razon);
-                            gCliente.setText(giro);
-                            cCliente.setText(correo);
-              
-                            fCliente.setTitle(name);
-                            fCliente.pack();
-                            fCliente.setVisible(true);
+                            FCliente c = new FCliente(name);
+                            c.setVisible(true);
                             break;
                            
                         case "empleado":
-                            int codigo = 0;
 
-                            for (int index = 0; index < listaEmpleado.length; index++) {
-                                
-                                for (int j = 0; j < listaEmpleado.length; j++) {
-                                    if (listaEmpleado[index].equalsIgnoreCase(le[j][0])) {
-                                        codigo = Integer.parseInt(le[j][1]);
-                                    }
-                                }
-                            }
-                            
-                            Empleado e = EmpleadoController.getEmpleadoByCodigo(codigo);
-                            
-                            String nombre = e.getNombre();
-                            String apellido = e.getApellido();
-                            String incorporacion = e.getIncorporacion();
-                            String usuario = e.getUsuario();
-                            String dire = e.getDireccion();
-                            String rol = e.getRol().getRol();
-                            
-                            nEmpleado.setText(nombre);
-                            aEmpleado.setText(apellido);
-                            iEmpleado.setText(incorporacion);
-                            uEmpleado.setText(usuario);
-                            rEmpleado.setText(rol);
-                            
-                            fEmpleado.setTitle(name);
-                            fEmpleado.pack();
-                            fEmpleado.setVisible(true);
-                            
+                            FEmpleado e = new FEmpleado(name, listaEmpleado, le);
+                            e.setVisible(true);
                             break;
                     }
                 }
@@ -1546,6 +1232,7 @@ public class AppItFrame extends javax.swing.JFrame {
         proyectoLista.addMouseListener(ml);
         clienteLista.addMouseListener(ml);
         empleadoLista.addMouseListener(ml);
+        
         String[] tipoProyecto = {"Pagina Web", "Aplicación Escritorio", "Aplicación Server", "Aplicación Móvil"};
 
         tProyectoBox.addItem("");
@@ -1633,38 +1320,21 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> addRecursoBox;
     private javax.swing.JButton addTBoton;
     private javax.swing.JFrame addTelefono;
-    private javax.swing.JLabel cCliente;
-    private javax.swing.JLabel cProyecto;
     private javax.swing.JList<String> clienteLista;
-    private javax.swing.JLabel dirCliente;
     private javax.swing.JList<String> empleadoLista;
-    private javax.swing.JFrame fCliente;
     private javax.swing.JFrame fEmpleado;
     private javax.swing.JFrame fFinalizarProyecto;
-    private javax.swing.JLabel fInicio;
     private javax.swing.JFrame fNuevoCliente;
     private javax.swing.JFrame fNuevoEmpleado;
     private javax.swing.JFrame fNuevoProyecto;
-    private javax.swing.JFrame fProyecto;
-    private javax.swing.JButton finalizarProyectoBoton;
     private javax.swing.JTextArea fpComentario;
     private javax.swing.JButton fpComentarioBoton;
     private javax.swing.JTextArea fpDefecto;
     private javax.swing.JButton fpDefectoBoton;
     private javax.swing.JButton fpFinalizar;
     private javax.swing.JLabel fpNombreProyecto;
-    private javax.swing.JLabel gCliente;
-    private javax.swing.JLabel hEstimadas;
     private javax.swing.JLabel iEmpleado;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -1689,7 +1359,6 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -1700,12 +1369,8 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -1715,12 +1380,9 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JLabel nCliente;
     private javax.swing.JLabel nEmpleado;
-    private javax.swing.JLabel nProyecto;
     private javax.swing.JButton ncAddTelefonoBoton;
     private javax.swing.JComboBox<String> ncComunaBox;
     private javax.swing.JTextField ncCorreo;
@@ -1752,14 +1414,9 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JButton nuevoEmpleadoBoton;
     private javax.swing.JButton nuevoProyecto;
     private javax.swing.JButton nuevoProyectoBoton;
-    private javax.swing.JLabel pTermino;
     private javax.swing.JList<String> proyectoLista;
-    private javax.swing.JTable proyectosCliente;
     private javax.swing.JList<String> proyectosTerminados;
     private javax.swing.JLabel rEmpleado;
-    private javax.swing.JLabel razonCliente;
-    private javax.swing.JLabel rutCliente;
-    private javax.swing.JLabel tProyecto;
     private javax.swing.JComboBox<String> tProyectoBox;
     private javax.swing.JLabel uEmpleado;
     // End of variables declaration//GEN-END:variables

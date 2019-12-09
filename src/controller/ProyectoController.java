@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,8 +15,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- *
+ * Controlador de proyecto para la interacción con base de datos 
  * @author Alexander
+ * 
  */
 public class ProyectoController {
     
