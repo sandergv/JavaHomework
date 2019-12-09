@@ -15,11 +15,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- *
+ * Controlador Cliente para la interacción con la base de datos
  * @author Alexander
+ * @version %I% %G%
  */
 public class ClienteController {
 
+    /**
+     * Consulta por Cliente con su rut 
+     * @param rut Rut Cliente
+     * @return Objeto Cliente
+     */
     public static Cliente getClienteByRut(String rut){
         MysqlConnection.conectar();
         Cliente c = null;
@@ -51,6 +57,11 @@ public class ClienteController {
 
     }
     
+    /**
+     * Consultar por Cliente con su nombre
+     * @param nombre Nombre de Cliente
+     * @return Objeto Cliente
+     */
     public static Cliente getClienteByNombre(String nombre){
         MysqlConnection.conectar();
         
@@ -69,6 +80,10 @@ public class ClienteController {
         return c;
     }
     
+    /**
+     * Consulta por la lista de todos los Clientes
+     * @return ArrayList de Clientes
+     */
     public static ArrayList<Cliente> getClientes(){
         MysqlConnection.conectar();
         ArrayList<Cliente> arrClientes = new ArrayList<Cliente>();
@@ -103,6 +118,11 @@ public class ClienteController {
         return arrClientes;
     }
     
+    /**
+     * Consultar por Telefonos asociados al Cliente 
+     * @param rut Rut Cliente
+     * @return ArrayList de Enteros
+     */
     public static ArrayList<Integer> getTelefonosCliente(String rut){
         MysqlConnection.conectar();
         ArrayList<Integer> telefonos = new ArrayList<Integer>();
@@ -132,6 +152,11 @@ public class ClienteController {
         return telefonos;
     }
     
+    /**
+     * Consultar por Proyectos asociados al Cliente
+     * @param rut Rut Cliente
+     * @return Arraylist de Proyectos
+     */
     private static ArrayList<Proyecto> getProyectosCliente(String rut){
         MysqlConnection.conectar();
         ArrayList<Proyecto> proyectos = new ArrayList<Proyecto>();
@@ -153,6 +178,10 @@ public class ClienteController {
         return proyectos;
     }
 
+    /**
+     * Insertar nuevo Cliente a la base de datos
+     * @param c Objeto Cliente
+     */
     public static void nuevoCliente(Cliente c){
         MysqlConnection.conectar();
         String[] columns = { "RUTCLIENTE", "CODIGOCOMUNA", "NOMBRECLIENTE", "DIRECCIONCLIENTE", "RAZONSOCIAL", "GIROCLIENTE", "CORREO"};
@@ -177,6 +206,12 @@ public class ClienteController {
         }
         MysqlConnection.desconectar();
     }
+    
+    /**
+     * Añadir Telefonos y asociarlos al cliente
+     * @param rut Rut Cliente
+     * @param tel ArrayList de Telefonos (Enteros)
+     */
     private static void addTelefonosCliente(String rut, ArrayList<Integer> tel){
         MysqlConnection.conectar();
         try{
@@ -210,6 +245,21 @@ public class ClienteController {
         }
         catch(Exception e){
         }
+        MysqlConnection.desconectar();
+    }
+    
+    public static void modificarCliente(Cliente c){
+        
+        String condition = String.format("RUTCLIENTE='%s'", c.getRut());
+        
+        MysqlConnection.conectar();
+        
+        MysqlConnection.update("cliente", "NOMBRECLIENTE", c.getNombre(), condition);
+        MysqlConnection.update("cliente", "DIRECCIONCLIENTE", c.getDireccion(), condition);
+        MysqlConnection.update("cliente", "RAZONSOCIAL", c.getRazonSocial(), condition);
+        MysqlConnection.update("cliente", "GIROCLIENTE", c.getGirocliente(), condition);
+        MysqlConnection.update("cliente", "CORREO", c.getCorreo(), condition);
+
         MysqlConnection.desconectar();
     }
 

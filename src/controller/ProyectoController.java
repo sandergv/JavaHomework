@@ -17,10 +17,15 @@ import java.util.ArrayList;
 /**
  * Controlador de proyecto para la interacción con base de datos 
  * @author Alexander
- * 
+ * @version %I% %G%
  */
 public class ProyectoController {
     
+    /**
+     * Consultar a la base de datos por proyecto con su codigo
+     * @param codigo codigo de proyecto
+     * @return Retorna objeto Proyecto con los datos de la abse de dato
+     */
     public static Proyecto getProyectoByCodigo(int codigo){
         MysqlConnection.conectar();
         Proyecto p = new Proyecto();
@@ -35,8 +40,7 @@ public class ProyectoController {
                 p.setNombre(rs.getString("NOMBREPROYECTO"));
                 p.setHoraEstimada(rs.getInt("HORASESTIMADAS"));
                 p.setFechaInicio(rs.getString("FECHAINICIO"));                 
-                p.setFechaTerminoPlanificada(rs.getString("FECHATERMINOPLANIFICADA"));
-                
+                p.setFechaTerminoPlanificada(rs.getString("FECHATERMINOPLANIFICADA"));        
             }
 
             p.setTipoProyecto(getTipoProyecto(p.getCodigoTipo()));
@@ -53,7 +57,11 @@ public class ProyectoController {
 
         return p;
     }
-    
+    /**
+     * Consultar por proyecto con su nombre
+     * @param nombre Nombre de proyecto
+     * @return Retorna un objeto Proyecto con los datos consultados en la base de datos
+     */
     public static Proyecto getProyectoByNombre(String nombre){
         int codigo = -1;
         Proyecto p = null;
@@ -75,7 +83,10 @@ public class ProyectoController {
         MysqlConnection.desconectar();
         return p;
     } 
-    
+    /**
+     * Consultar por la lista completa de proyectos de la base de datos
+     * @return Se retorna ArrayList con los objetos Proyecto
+     */
     public static ArrayList<Proyecto> getProyectos(){
         ArrayList<Proyecto> proyectos = new ArrayList<Proyecto>();
         Proyecto p;
@@ -106,6 +117,11 @@ public class ProyectoController {
         return proyectos;
     }
     
+    /**
+     * Consulta por el tipo de Proyecto
+     * @param codigo codigo de tipo proyecto
+     * @return retorna objeto String con el tipo de proyecto
+     */
     public static String getTipoProyecto(int codigo){
         MysqlConnection.conectar();
         ResultSet rs = MysqlConnection.select("tipo_proyecto", "*", "CODIGOTIPOPROYECTO=" + codigo);
@@ -120,6 +136,10 @@ public class ProyectoController {
         return tp;
     }
 
+    /**
+     * Insertar nuevo Proyecto a la base de datos
+     * @param p Objeto proyecto 
+     */
     public static void nuevoProyecto(Proyecto p){
         String[] columns = {"CODIGOTIPOPROYECTO", "NOMBREPROYECTO", "HORASESTIMADAS", "FECHAINICIO", "FECHATERMINOPLANIFICADA"};
         MysqlConnection.conectar();
@@ -152,7 +172,12 @@ public class ProyectoController {
         }
         MysqlConnection.desconectar();
     }
-
+    
+    /**
+     * Asociar Cliente a Proyecto 
+     * @param codigoProyecto
+     * @param RutCliente 
+     */
     public static void addClienteProyecto(int codigoProyecto, String RutCliente){
         String[] columns = {"RUTCLIENTE", "CODIGOPROYECTO"};
         MysqlConnection.conectar();
@@ -170,6 +195,11 @@ public class ProyectoController {
         MysqlConnection.desconectar();
     }
     
+    /**
+     * Asociar Estado de proyecto a Proyecto
+     * @param codigoEstado Codigo de estado proyecto
+     * @param codigoProyecto Codigo de proyecto
+     */
     public static void addEstadoProyecto(int codigoEstado, int codigoProyecto){
         String[] columns = {"CODIGOESTADOPROYECTO", "CODIGOPROYECTO"};
         MysqlConnection.conectar();
@@ -186,6 +216,12 @@ public class ProyectoController {
         }
         MysqlConnection.desconectar();
     }
+    
+    /**
+     * Asociar empleado a proyecto
+     * @param codigoProyecto Codigo de proyecto
+     * @param codigoEmpleado Codigo de empleado
+     */
     public static void addEmpleadoProyecto(int codigoProyecto, int codigoEmpleado){
         String[] columns = {"CODIGOEMPLEADO", "CODIGOPROYECTO"};
         MysqlConnection.conectar();
@@ -203,6 +239,11 @@ public class ProyectoController {
         MysqlConnection.desconectar();
     }
 
+    /**
+     * Asociar recurso a proyecto
+     * @param codigoProyecto Codigo de proyecto
+     * @param codigoRecurso Codigo de recurso
+     */
     public static void addRecursoProyecto(int codigoProyecto,int codigoRecurso){
         String[] columns = {"CODIGORECURSO", "CODIGOPROYECTO"};
         MysqlConnection.conectar();
@@ -219,6 +260,12 @@ public class ProyectoController {
         }
         MysqlConnection.desconectar();
     }
+    
+    /**
+     * Asociar etapa a proyecto
+     * @param codigoProyecto Codigo de Proyecto
+     * @param codigoEtapa Codigo de Etapa
+     */
     public static void addEtapaProyecto(int codigoProyecto,int codigoEtapa){
         String[] columns = {"CODIGOETAPA", "CODIGOPROYECTO"};
         MysqlConnection.conectar();
@@ -235,6 +282,12 @@ public class ProyectoController {
         }
         MysqlConnection.desconectar();
     }
+    
+    /**
+     * Consultar por clientes asociados al Proyecto
+     * @param codigo Codigo de Proyecto
+     * @return ArrayList de Clientes
+     */
     public static ArrayList<Cliente> getClientes(int codigo){
         ArrayList<Cliente> c = new ArrayList<>();
         ArrayList<String> rc = new ArrayList<>();
@@ -248,7 +301,6 @@ public class ProyectoController {
             for(String r: rc){
                 c.add(ClienteController.getClienteByRut(r));
             }
-
         }
         catch (Exception e){
 
@@ -257,6 +309,11 @@ public class ProyectoController {
         return c;
     }
 
+    /**
+     * Consultar por Empleados asociados al Proyecto
+     * @param codigo Codigo de Proyecto
+     * @return ArrayList de Empleados
+     */
     public static  ArrayList<Empleado> getEmpleados(int codigo){
         ArrayList<Empleado> c = new ArrayList<>();
         ArrayList<Integer> rc = new ArrayList<>();
@@ -278,6 +335,11 @@ public class ProyectoController {
         return c;
     }
 
+    /**
+     * Consultar por Etapas asociadas al Proyecto
+     * @param codigo Codigo de Proyecto
+     * @return ArrayList de Etapas
+     */
     private static ArrayList<Etapa> getEtapas(int codigo){
         ArrayList<Etapa> c = new ArrayList<>();
         ArrayList<Integer> rc = new ArrayList<>();
@@ -299,6 +361,11 @@ public class ProyectoController {
         return c;
     }
 
+    /**
+     * Consultar por los Estados asociados al Proyecto
+     * @param codigo Codigo de Proyecto
+     * @return ArrayList de String
+     */
     public static ArrayList<String> getEstados(int codigo){
         ArrayList<String> c = new ArrayList<>();
         ArrayList<Integer> rc = new ArrayList<>();
@@ -324,6 +391,11 @@ public class ProyectoController {
         return c;
     }
 
+    /**
+     * Consultar por Recursos asociados al Proyecto
+     * @param codigo Codigo de Proyecto
+     * @return ArrayList de Recuros
+     */
     private static ArrayList<Recurso> getRecursos(int codigo){
         ArrayList<Recurso> c = new ArrayList<>();
         ArrayList<Integer> rc = new ArrayList<>();

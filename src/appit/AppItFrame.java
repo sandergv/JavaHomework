@@ -46,17 +46,6 @@ public class AppItFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        fEmpleado = new javax.swing.JFrame();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        nEmpleado = new javax.swing.JLabel();
-        aEmpleado = new javax.swing.JLabel();
-        uEmpleado = new javax.swing.JLabel();
-        rEmpleado = new javax.swing.JLabel();
-        iEmpleado = new javax.swing.JLabel();
         fNuevoProyecto = new javax.swing.JFrame();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -154,73 +143,6 @@ public class AppItFrame extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-
-        jLabel18.setText("Nombre Empleado:");
-
-        jLabel19.setText("Apellido Empleado:");
-
-        jLabel20.setText("Rol Emplado:");
-
-        jLabel21.setText("Fecha Incorporación:");
-
-        jLabel22.setText("Nombre de usuario:");
-
-        nEmpleado.setText("jLabel23");
-
-        aEmpleado.setText("jLabel23");
-
-        uEmpleado.setText("jLabel23");
-
-        rEmpleado.setText("jLabel23");
-
-        iEmpleado.setText("jLabel23");
-
-        javax.swing.GroupLayout fEmpleadoLayout = new javax.swing.GroupLayout(fEmpleado.getContentPane());
-        fEmpleado.getContentPane().setLayout(fEmpleadoLayout);
-        fEmpleadoLayout.setHorizontalGroup(
-            fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fEmpleadoLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel21))
-                .addGap(32, 32, 32)
-                .addGroup(fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(iEmpleado)
-                    .addComponent(rEmpleado)
-                    .addComponent(uEmpleado)
-                    .addComponent(aEmpleado)
-                    .addComponent(nEmpleado))
-                .addContainerGap(229, Short.MAX_VALUE))
-        );
-        fEmpleadoLayout.setVerticalGroup(
-            fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fEmpleadoLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
-                    .addComponent(nEmpleado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(aEmpleado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(uEmpleado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(rEmpleado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(iEmpleado))
-                .addContainerGap(250, Short.MAX_VALUE))
-        );
 
         jLabel23.setText("Nombre:");
 
@@ -842,7 +764,10 @@ public class AppItFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    // Botton nuevo proyecto
+    /**
+     * Evento de nuevo Proyecto 
+     * @param evt 
+     */
     private void nuevoProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoProyectoActionPerformed
         nombreP.setText("");
         npFechaInicio.setText("");
@@ -854,7 +779,6 @@ public class AppItFrame extends javax.swing.JFrame {
         p.setCodigoTipo(-1);
         String[] tipoProyecto = {"Pagina Web", "Aplicación Escritorio", "Aplicación Server", "Aplicación Móvil"};
         int[] tpCodigo = {1, 2, 3, 4}; // el codigo de tipo proyecto no encesariamente son numeros correlativos
-        
         
         fNuevoProyecto.pack();
         fNuevoProyecto.setVisible(true);
@@ -938,7 +862,11 @@ public class AppItFrame extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_nuevoProyectoActionPerformed
-    // boton para añadir recursos
+    
+    /**
+     * Evento para asociar recurso a Proyecto
+     * @param evt 
+     */
     private void npRecursoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_npRecursoBotonActionPerformed
 
             ArrayList<Recurso> listaR = RecursoController.getRecursos();
@@ -959,6 +887,10 @@ public class AppItFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_npRecursoBotonActionPerformed
 
+    /**
+     * Evento para asocicar Empleados a Proyecto
+     * @param evt 
+     */
     private void npempeladoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_npempeladoBotonActionPerformed
         ArrayList<Empleado> listaE = EmpleadoController.getEmpleados();
         String[] listaEmpleado = new String [listaE.size()];
@@ -994,7 +926,11 @@ public class AppItFrame extends javax.swing.JFrame {
         });
         
     }//GEN-LAST:event_npempeladoBotonActionPerformed
-    // Boton para añadir Cliente
+    
+    /**
+     * Evento de nuevo Cliente
+     * @param evt 
+     */
     private void nuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoClienteActionPerformed
         fNuevoCliente.pack();
         fNuevoCliente.setVisible(true);
@@ -1067,7 +1003,11 @@ public class AppItFrame extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_nuevoClienteActionPerformed
-    // boton para añadir empleado
+    
+    /**
+     * Evento de Nuevo Empleado
+     * @param evt 
+     */
     private void nuevoEmpleadoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoEmpleadoBotonActionPerformed
         
         ArrayList<Comuna> comunas = ComunaController.getComunas();
@@ -1145,12 +1085,17 @@ public class AppItFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_nuevoEmpleadoBotonActionPerformed
 
-   // inicialización de componentes en la interfaz principal
+   /**
+    * Inicición de componentes
+    */
     public void myInitComponents() {
         proyectoLista.setName("proyecto");
         clienteLista.setName("cliente");
         empleadoLista.setName("empleado");
         proyectoLista.removeAll();
+        proyectosTerminadosLista = new ArrayList<>();
+        npListaEmpleado = new ArrayList<>();
+        npListaRecurso = new ArrayList<>();
         MysqlConnection.conectar();
         ArrayList<Proyecto> listaP = ProyectoController.getProyectos();
         String[] listaProyectos = new String [listaP.size()];
@@ -1261,57 +1206,15 @@ public class AppItFrame extends javax.swing.JFrame {
         for (int i = 0; i < endP.length; i++) {
             endP[i] = proyectosTerminadosLista.get(i);
         }
-        System.out.println(proyectosTerminadosLista.size());
-        proyectosTerminados.setListData(endP);
-        
-        //for (int index = 0; index < listaEmpleado.length; index++) {
-                                
-        //    for (int j = 0; j < listaEmpleado.length; j++) {
-        //        if (listaEmpleado[index].equalsIgnoreCase(le[j][0])) {
-        //            codigo = Integer.parseInt(le[j][1]);
-        //        }
-        //    }
-        //}
-        
+        proyectosTerminados.setListData(endP);        
     }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AppItFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AppItFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AppItFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AppItFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AppItFrame().setVisible(true);
-            }
-        });
-    }
-    private ArrayList<String> proyectosTerminadosLista = new ArrayList<>();
-    private ArrayList<Integer> npListaEmpleado = new ArrayList<>();
-    private ArrayList<String> npListaRecurso = new ArrayList<>();
+    
+    // Variables de nuevo Proyecto
+    private ArrayList<String> proyectosTerminadosLista;
+    private ArrayList<Integer> npListaEmpleado;
+    private ArrayList<String> npListaRecurso;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel aEmpleado;
     private javax.swing.JFrame addEmpleado;
     private javax.swing.JButton addEmpleadoBoton;
     private javax.swing.JComboBox<String> addEmpleadoBox;
@@ -1322,7 +1225,6 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JFrame addTelefono;
     private javax.swing.JList<String> clienteLista;
     private javax.swing.JList<String> empleadoLista;
-    private javax.swing.JFrame fEmpleado;
     private javax.swing.JFrame fFinalizarProyecto;
     private javax.swing.JFrame fNuevoCliente;
     private javax.swing.JFrame fNuevoEmpleado;
@@ -1333,14 +1235,8 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JButton fpDefectoBoton;
     private javax.swing.JButton fpFinalizar;
     private javax.swing.JLabel fpNombreProyecto;
-    private javax.swing.JLabel iEmpleado;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -1382,7 +1278,6 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JLabel nEmpleado;
     private javax.swing.JButton ncAddTelefonoBoton;
     private javax.swing.JComboBox<String> ncComunaBox;
     private javax.swing.JTextField ncCorreo;
@@ -1416,8 +1311,6 @@ public class AppItFrame extends javax.swing.JFrame {
     private javax.swing.JButton nuevoProyectoBoton;
     private javax.swing.JList<String> proyectoLista;
     private javax.swing.JList<String> proyectosTerminados;
-    private javax.swing.JLabel rEmpleado;
     private javax.swing.JComboBox<String> tProyectoBox;
-    private javax.swing.JLabel uEmpleado;
     // End of variables declaration//GEN-END:variables
 }

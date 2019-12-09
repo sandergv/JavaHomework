@@ -8,8 +8,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+/**
+ * Controlador de Empleados para la interacción con la base de datos
+ * @author Alexander
+ * @version %I% %G%
+ */
 public class EmpleadoController {
 
+    /**
+     * Consultar por todos los Empleados
+     * @return Arraylista de Empleados
+     */
     public static ArrayList<Empleado> getEmpleados(){
         ArrayList<Empleado> empleados = new ArrayList<Empleado>();
         MysqlConnection.conectar();
@@ -42,10 +51,14 @@ public class EmpleadoController {
         catch (Exception e){
 
         }
-
         return empleados;
     }
 
+    /**
+     * Consultar por empleado con el Codigo
+     * @param codigo Codigo del Empleado
+     * @return Objeto Empleado
+     */
     public static Empleado getEmpleadoByCodigo(int codigo){
         MysqlConnection.conectar();
         ResultSet rs = MysqlConnection.select(
@@ -76,6 +89,10 @@ public class EmpleadoController {
         return em;
     }
 
+    /**
+     * Insertar nuevo proyecto
+     * @param e Objeto Empleado
+     */
     public static void nuevoEmpleado(Empleado e){
         String[] columnas = {
                 "CODIGOROL", "CODIGOCOMUNA", "EMP_CODIGOEMPLEADO",
@@ -113,6 +130,11 @@ public class EmpleadoController {
         MysqlConnection.delete("empleado", "CODIGOEMPLEADO="+codigo);
     }
 
+    /**
+     * Asociar Proyecto a empleado
+     * @param p Objeto Proyecto
+     * @param codigoEmpleado  Codigo Empleado
+     */
     public static void addProyecto(Proyecto p, int codigoEmpleado){
         MysqlConnection.conectar();
         String[] columns = {"CODIGOEMPLEADO", "CODIGOPROYECTO"};
@@ -131,6 +153,11 @@ public class EmpleadoController {
         MysqlConnection.desconectar();
     }
 
+    /**
+     * Consultar por Proyectos asociados al Empleado
+     * @param codigo Codigo de Empleado
+     * @return Arraylist de Proyectos
+     */
     public static ArrayList<Proyecto> getProyectos(int codigo){
         ArrayList<Proyecto> c = new ArrayList<>();
         ArrayList<Integer> rc = new ArrayList<>();

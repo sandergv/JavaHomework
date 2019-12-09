@@ -13,11 +13,16 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 /**
- *
+ * Controlador de Provincia para la comunicación con la base de datos
  * @author Alexander
  */
 public class ProvinciaController {
     
+    /**
+     * Consultar por provincia con el codigo
+     * @param codigo Codigo deprovincia
+     * @return Objeto Provincia
+     */
     public static Provincia getProvinciaByCodigo(int codigo){
         Provincia provincia = new Provincia();
         MysqlConnection.conectar();
@@ -36,6 +41,10 @@ public class ProvinciaController {
         return provincia;
     }
 
+    /**
+     * Consultar por todas las Provincias
+     * @return ArrayList de Provincias
+     */
     public static ArrayList<Provincia> getProvincias(){
         Provincia provincia;
         ArrayList<Provincia> provincias = new ArrayList<Provincia>();
@@ -57,6 +66,10 @@ public class ProvinciaController {
         return provincias;
     }
 
+    /**
+     * Insertar nueva Provincia
+     * @param nombre String nombre provincia
+     */
     public static void nuevaProvincia(String nombre){
         String[] columnas = {"NOMBREPROVINCIA"};
         MysqlConnection.conectar();
@@ -73,6 +86,10 @@ public class ProvinciaController {
 
     }
 
+    /**
+     * Eliminar Provincia
+     * @param codigo 
+     */
     public static void borrarProvincia(int codigo){
         MysqlConnection.delete("provincia", "CODIGOPROVINCIA="+codigo);
     }

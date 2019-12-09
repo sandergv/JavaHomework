@@ -117,7 +117,7 @@ public class MysqlConnection {
 
     public static void update(String table, String column, String value, String condition){
         conectar();
-        String query = "update "+table+" set "+column+" = ? where first_name = ?";
+        String query = "update "+table+" set "+column+" = ? where "+ condition;
         PreparedStatement pst;
         try {
             pst = conn.prepareStatement(query);
@@ -126,14 +126,14 @@ public class MysqlConnection {
             pst.close();
         }
         catch(Exception e){
-
+            System.out.println(e.getMessage());
         }
         desconectar();
     }
 
     public static void update(String table, String column, int value, String condition){
         conectar();
-        String query = "update "+table+" set "+column+" = ? where first_name = ?";
+        String query = "update "+table+" set "+column+" = ? where "+condition;
         PreparedStatement pst;
         try {
             pst = conn.prepareStatement(query);

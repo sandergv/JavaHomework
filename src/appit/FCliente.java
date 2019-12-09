@@ -6,7 +6,10 @@
 package appit;
 
 import controller.ClienteController;
+import database.MysqlConnection;
 import datos.Cliente;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 /**
@@ -15,6 +18,7 @@ import javax.swing.JFrame;
  */
 public class FCliente extends javax.swing.JFrame {
     private String name;
+    private Cliente cliente;
     /**
      * Constructor de la vista
      * 
@@ -22,6 +26,7 @@ public class FCliente extends javax.swing.JFrame {
      */
     public FCliente(String name) {
         this.name = name;
+        this.cliente = ClienteController.getClienteByNombre(name);
         initComponents();
         myInit();
     }
@@ -35,6 +40,20 @@ public class FCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        fModificarCliente = new javax.swing.JFrame();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        lRazonSocial = new javax.swing.JTextField();
+        lDir = new javax.swing.JTextField();
+        lCorreo = new javax.swing.JTextField();
+        lGiro = new javax.swing.JTextField();
+        lRutCliente = new javax.swing.JLabel();
+        lNombreCliente = new javax.swing.JTextField();
+        ModificarClienteBtn = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         razonCliente = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -47,6 +66,93 @@ public class FCliente extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         nCliente = new javax.swing.JLabel();
         rutCliente = new javax.swing.JLabel();
+        btnModificarCliente = new javax.swing.JButton();
+
+        jLabel1.setText("Rut Cliente");
+
+        jLabel2.setText("Nombre Cliente:");
+
+        jLabel3.setText("Razon Social:");
+
+        jLabel4.setText("Dirección Cliente:");
+
+        jLabel5.setText("Correo Cliente:");
+
+        jLabel6.setText("Giro Cliente:");
+
+        lRazonSocial.setText("jTextField2");
+
+        lDir.setText("jTextField3");
+
+        lCorreo.setText("jTextField4");
+
+        lGiro.setText("jTextField5");
+
+        lRutCliente.setText("jLabel7");
+
+        lNombreCliente.setText("jTextField1");
+
+        ModificarClienteBtn.setText("Modificar");
+
+        javax.swing.GroupLayout fModificarClienteLayout = new javax.swing.GroupLayout(fModificarCliente.getContentPane());
+        fModificarCliente.getContentPane().setLayout(fModificarClienteLayout);
+        fModificarClienteLayout.setHorizontalGroup(
+            fModificarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fModificarClienteLayout.createSequentialGroup()
+                .addGroup(fModificarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fModificarClienteLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(fModificarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(42, 42, 42)
+                        .addGroup(fModificarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lRazonSocial, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                            .addComponent(lDir)
+                            .addComponent(lCorreo)
+                            .addComponent(lGiro)
+                            .addComponent(lRutCliente)
+                            .addComponent(lNombreCliente)))
+                    .addGroup(fModificarClienteLayout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(ModificarClienteBtn)))
+                .addContainerGap(84, Short.MAX_VALUE))
+        );
+        fModificarClienteLayout.setVerticalGroup(
+            fModificarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fModificarClienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fModificarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lRutCliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fModificarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(lNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fModificarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(lRazonSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fModificarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(lDir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fModificarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(lCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fModificarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(lGiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addComponent(ModificarClienteBtn)
+                .addGap(45, 45, 45))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,6 +180,13 @@ public class FCliente extends javax.swing.JFrame {
 
         rutCliente.setText("jLabel19");
 
+        btnModificarCliente.setText("Modificar Cliente");
+        btnModificarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarClienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,20 +194,23 @@ public class FCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(gCliente)
-                    .addComponent(cCliente)
-                    .addComponent(dirCliente)
-                    .addComponent(razonCliente)
-                    .addComponent(rutCliente)
-                    .addComponent(nCliente))
+                    .addComponent(btnModificarCliente)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(gCliente)
+                            .addComponent(cCliente)
+                            .addComponent(dirCliente)
+                            .addComponent(razonCliente)
+                            .addComponent(rutCliente)
+                            .addComponent(nCliente))))
                 .addContainerGap(236, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -124,11 +240,53 @@ public class FCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(gCliente))
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(btnModificarCliente)
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    /**
+     * Modificación de Cliente
+     * @param evt 
+     */
+    private void btnModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClienteActionPerformed
+        
+        lRutCliente.setText(this.cliente.getRut());
+        lNombreCliente.setText(this.name);
+        lRazonSocial.setText(this.cliente.getRazonSocial());
+        lGiro.setText(this.cliente.getGirocliente());
+        lDir.setText(this.cliente.getDireccion());
+        lCorreo.setText(this.cliente.getCorreo());
+        
+        fModificarCliente.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        fModificarCliente.pack();
+        fModificarCliente.setVisible(true);
+        
+        ModificarClienteBtn.addActionListener(new ActionListener(){
+            boolean ready = true;
+
+            @Override
+            public void actionPerformed(ActionEvent e){
+                
+                cliente.setNombre(lNombreCliente.getText());
+                cliente.setRazonSocial(lRazonSocial.getText());
+                cliente.setGirocliente(lGiro.getText());
+                cliente.setDireccion(lDir.getText());
+                cliente.setCorreo(lCorreo.getText());
+                
+                ClienteController.modificarCliente(cliente);
+                name = cliente.getNombre();
+                myInit();
+                Main.frame.myInitComponents();
+                
+                fModificarCliente.dispose();
+                
+            }
+        });
+    }//GEN-LAST:event_btnModificarClienteActionPerformed
     
     /**
      * Inicialización de componentes
@@ -151,19 +309,34 @@ public class FCliente extends javax.swing.JFrame {
         razonCliente.setText(razon);
         gCliente.setText(giro);
         cCliente.setText(correo);
-                  
+                
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ModificarClienteBtn;
+    private javax.swing.JButton btnModificarCliente;
     private javax.swing.JLabel cCliente;
     private javax.swing.JLabel dirCliente;
+    private javax.swing.JFrame fModificarCliente;
     private javax.swing.JLabel gCliente;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JTextField lCorreo;
+    private javax.swing.JTextField lDir;
+    private javax.swing.JTextField lGiro;
+    private javax.swing.JTextField lNombreCliente;
+    private javax.swing.JTextField lRazonSocial;
+    private javax.swing.JLabel lRutCliente;
     private javax.swing.JLabel nCliente;
     private javax.swing.JLabel razonCliente;
     private javax.swing.JLabel rutCliente;

@@ -7,8 +7,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+/**
+ * Controlador de Recursos para lainteracción con base de datos
+ * @author Alexander
+ */
 public class RecursoController {
 
+    /**
+     * Consultar por Recurso con elcodigo
+     * @param codigo Codigo de recurso
+     * @return Objeto Recurso
+     */
     public static Recurso getRecursoByCodigo(int codigo){
         Recurso recurso = new Recurso();
         MysqlConnection.conectar();
@@ -29,6 +38,11 @@ public class RecursoController {
         return recurso;
     }
     
+    /**
+     * Consultar por Recurso con su nombre
+     * @param nombre Nombre de Recurso
+     * @return Objeto Recurso
+     */
     public static Recurso getRecursoByNombre(String nombre){
                Recurso recurso = new Recurso();
         MysqlConnection.conectar();
@@ -49,6 +63,10 @@ public class RecursoController {
         return recurso; 
     }
 
+    /**
+     * Consulta por todos los Recursos
+     * @return ArrayList de Recursos
+     */
     public static ArrayList<Recurso> getRecursos(){
         ArrayList<Recurso> recursos = new ArrayList<>();
         Recurso recurso;
@@ -73,6 +91,10 @@ public class RecursoController {
         return recursos;
     }
 
+    /**
+     * Insertar nuevo Recurso
+     * @param r Objeto Recurso
+     */
     public static void nuevoRecurso(Recurso r){
         String[] columnas = {"NOMBRERECURSO", "DESCRIPCIONRECURSO", "VALORRECURSO"};
         MysqlConnection.conectar();
@@ -92,6 +114,10 @@ public class RecursoController {
 
     }
 
+    /**
+     * Borrar recurso
+     * @param codigo codigo Recurso
+     */
     public static void borrarRecurso(int codigo){
         MysqlConnection.delete("recurso", "CODIGORECURSO="+codigo);
     }

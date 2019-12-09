@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 /**
  * Vista de información del proyecto y finalización el mismo
  * @author Alexander
+ * @version %I% %G%
  */
 public class FProyecto extends javax.swing.JFrame {
 
@@ -149,10 +150,13 @@ public class FProyecto extends javax.swing.JFrame {
         System.out.println("hi");
     }//GEN-LAST:event_finalizarProyectoBotonActionPerformed
     
+    /**
+     * Iniciación de componentes
+     */
     private void myInit(){
         
         this.setTitle(name);
-
+        
         ArrayList<Empleado> empleados;
         ArrayList<Cliente> cliente;
         Proyecto p = ProyectoController.getProyectoByNombre(this.name);
